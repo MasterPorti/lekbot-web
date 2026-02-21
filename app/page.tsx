@@ -1,65 +1,324 @@
 import Image from "next/image";
+import {
+  ChevronRight,
+  Star,
+  Package,
+  Cable,
+  Smartphone,
+  Code2,
+  Truck,
+  Heart,
+  Globe,
+  Lightbulb,
+  Play,
+} from "lucide-react";
+import Navbar from "./components/Navbar";
+
+const steps = [
+  {
+    number: "01",
+    icon: <Package size={28} strokeWidth={1.5} />,
+    title: "Recibe tu kit",
+    desc: "Recibes todas las piezas del Lek 2: estructura, motores, sensores y electrónica lista para ensamblar.",
+  },
+  {
+    number: "02",
+    icon: <Cable size={28} strokeWidth={1.5} />,
+    title: "Arma el robot",
+    desc: "Conecta los cables y monta el cuerpo paso a paso con la guía incluida. Sin soldadura, sin herramientas especiales.",
+  },
+  {
+    number: "03",
+    icon: <Smartphone size={28} strokeWidth={1.5} />,
+    title: "Vincula tu teléfono",
+    desc: "Abre la LekApp, escanea el código QR de tu robot y en segundos queda conectado vía Wi-Fi.",
+  },
+  {
+    number: "04",
+    icon: <Code2 size={28} strokeWidth={1.5} />,
+    title: "Programalo a distancia",
+    desc: "Crea rutinas, controla movimientos y personaliza comportamientos desde cualquier lugar del mundo.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main
+      className="min-h-screen bg-[#f3f4de]"
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
+        backgroundSize: "20px 20px",
+      }}
+    >
+      <Navbar />
+
+      {/* HERO */}
+      <section
+        id="lek2pro"
+        className="min-h-screen pt-24 pb-16 px-6 flex flex-col items-center text-center"
+      >
+        {/* Badge + Título */}
+        <div className="flex items-center gap-2 bg-[#dc2a36] text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
+          <Star size={12} fill="white" />
+          Nuevo — Lek 2
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-2">
+          El robot que
+          <br />
+          <span className="text-[#dc2a36]">armas tú mismo.</span>
+        </h1>
+
+        {/* Robot + círculos */}
+        <div className="relative flex items-center justify-center my-4">
+          <div className="absolute z-0 rounded-full bg-[#dc2a36] w-37 h-37 sm:w-51 sm:h-51 md:w-102 md:h-102" />
+          <div className="absolute z-0 rounded-full bg-[#e84d5a] w-30 h-30 sm:w-40 sm:h-40 md:w-80 md:h-80" />
+          <div className="absolute z-0 rounded-full bg-[#f07078] w-20 h-20 sm:w-27 sm:h-27 md:w-59 md:h-59" />
+          <div className="absolute z-0 rounded-full bg-[#f8a0a8] w-12 h-12 sm:w-17 sm:h-17 md:w-37 md:h-37" />
+          <Image
+            src="/lekprov22.png"
+            alt="Lek 2"
+            width={420}
+            height={420}
+            className="relative z-10 object-contain drop-shadow-xl w-64 sm:w-80 md:w-100 md:scale-150"
+            priority
+          />
+        </div>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 w-full sm:w-auto">
+          <a
+            href="#comprar"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#dc2a36] text-white text-base font-bold z-20
+                       px-8 py-4 rounded-full hover:bg-[#c02030] transition-all duration-200 hover:scale-105"
+          >
+            Comprar ahora — $499
+            <ChevronRight size={18} />
+          </a>
+          <a
+            href="#como-funciona"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 text-gray-700 text-base font-medium
+                       px-8 py-4 rounded-full border-2 border-gray-300 hover:border-gray-500 z-20
+                       hover:bg-white transition-all duration-200"
+          >
+            Ver más
+            <ChevronRight size={18} />
+          </a>
+        </div>
+
+        {/* Descripción */}
+        <p className="text-base md:text-lg text-gray-600 max-w-lg leading-relaxed mb-10">
+          Construye, programa y controla tu robot desde cualquier lugar con la{" "}
+          <strong className="text-[#dc2a36]">LekApp</strong>.{" "}
+          <span className="text-gray-900 font-medium">
+            Sin soldadura, sin experiencia previa.
+          </span>
+        </p>
+
+        {/* Edad */}
+        <div className="flex items-center gap-1.5 text-gray-500 text-xs font-medium mb-4">
+          <span className="bg-gray-900 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+            +8
+          </span>
+          Para mayores de 8 años
+        </div>
+
+        {/* Specs */}
+        <div className="grid grid-cols-3 divide-x divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden w-full max-w-sm md:max-w-md bg-white">
+          {[
+            { value: "Wi-Fi", label: "Conectividad" },
+            { value: "360°", label: "Movimiento" },
+            { value: "LekApp", label: "Control" },
+          ].map((spec) => (
+            <div
+              key={spec.label}
+              className="flex flex-col items-center py-5 px-2 hover:bg-[#dc2a36] hover:text-white transition-colors duration-200 group"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              <p className="text-lg md:text-xl font-bold text-[#dc2a36] group-hover:text-white transition-colors duration-200">
+                {spec.value}
+              </p>
+              <p className="text-xs text-gray-400 group-hover:text-white/80 mt-1 uppercase tracking-wider transition-colors duration-200">
+                {spec.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      {/* ENVÍO GRATIS — banner */}
+      <section className="bg-[#dc2a36] py-5 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-white text-center">
+          <Truck size={22} strokeWidth={2} className="shrink-0" />
+          <p className="text-sm md:text-base font-semibold tracking-wide">
+            Envío <strong>gratis</strong> a toda la República Mexicana en todos
+            los pedidos.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#comprar"
+            className="shrink-0 bg-white text-[#dc2a36] text-xs font-bold px-4 py-1.5 rounded-full
+                       hover:bg-gray-100 transition-colors duration-200"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Comprar ahora
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* CÓMO FUNCIONA */}
+      <section id="como-funciona" className="py-16 md:py-28 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Encabezado */}
+          <div className="text-center mb-10 md:mb-20">
+            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+              De la caja a tu control
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+              Así funciona el <span className="text-[#dc2a36]">Lek 2.</span>
+            </h2>
+          </div>
+
+          {/* Steps */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
+            {/* Línea conectora */}
+            <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gray-100 z-0" />
+
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="relative z-10 flex flex-col items-center text-center bg-[#f8f8f8]
+                           border border-gray-200 rounded-2xl p-5 md:p-8
+                           hover:-translate-y-1 transition-all duration-300 hover:border-[#dc2a36]"
+              >
+                {/* Ícono */}
+                <div
+                  className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-white border border-gray-200 flex items-center justify-center
+                              text-[#dc2a36] mb-4 relative"
+                >
+                  {step.icon}
+                  <span
+                    className="absolute -top-2 -right-2 bg-[#dc2a36] text-white text-[10px]
+                               font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                  >
+                    {step.number.replace("0", "")}
+                  </span>
+                </div>
+
+                <h3 className="text-sm md:text-lg font-bold text-gray-900 mb-1 md:mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-xs md:text-sm text-gray-500 leading-relaxed hidden sm:block">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA final */}
+          <div className="text-center mt-16">
+            <a
+              href="#comprar"
+              className="inline-flex items-center gap-2 bg-[#dc2a36] text-white font-bold
+                         px-10 py-4 rounded-full hover:bg-[#c02030] transition-all duration-200 hover:scale-105"
+            >
+              Quiero mi Lek 2
+              <ChevronRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO CREADOR */}
+      <section className="bg-black py-5 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-white text-center">
+          <Play
+            size={22}
+            strokeWidth={2}
+            className="shrink-0 text-[#dc2a36]"
+            fill="#dc2a36"
+          />
+          <p className="text-sm md:text-base font-semibold tracking-wide">
+            Conoce a <strong>nuestro creador</strong> y la historia detrás del
+            Lek 2.
+          </p>
+          <a
+            href="#video"
+            className="shrink-0 bg-[#dc2a36] text-white text-xs font-bold px-4 py-1.5 rounded-full
+                       hover:bg-[#c02030] transition-colors duration-200"
+          >
+            Ver video
+          </a>
+        </div>
+      </section>
+
+      {/* QUIÉNES SOMOS */}
+      <section
+        id="quienes-somos"
+        className="py-24 px-6 bg-[#f3f4de]"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      >
+        <div className="max-w-5xl mx-auto">
+          {/* Encabezado */}
+          <div className="text-center mb-16">
+            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+              Nuestra misión
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
+              Quiénes <span className="text-[#dc2a36]">somos.</span>
+            </h2>
+          </div>
+
+          {/* Frase principal */}
+          <div className="bg-white border border-gray-200 rounded-3xl p-10 md:p-16 text-center mb-10">
+            <p className="text-xl md:text-3xl font-bold text-gray-900 leading-snug tracking-tight">
+              Creemos que la robótica no debe ser un lujo.
+              <br />
+              <span className="text-[#dc2a36]">
+                Debe estar en cada casa, en cada niño, en cada sueño.
+              </span>
+            </p>
+          </div>
+
+          {/* Pilares */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              {
+                icon: <Lightbulb size={24} strokeWidth={1.5} />,
+                title: "Accesible",
+                desc: "Diseñamos el Lek 2 con el mínimo presupuesto posible sin sacrificar calidad, para que cualquier familia pueda acceder.",
+              },
+              {
+                icon: <Heart size={24} strokeWidth={1.5} />,
+                title: "Inclusivo",
+                desc: "Hecho para niños y niñas de todo México, sin importar dónde vivan o cuánto sepan de tecnología.",
+              },
+              {
+                icon: <Globe size={24} strokeWidth={1.5} />,
+                title: "Democratizando",
+                desc: "Queremos que México sea un país de creadores, no solo consumidores. La robótica empieza en casa.",
+              },
+            ].map((pilar) => (
+              <div
+                key={pilar.title}
+                className="bg-white border border-gray-200 rounded-2xl p-7 hover:border-[#dc2a36]
+                           hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#dc2a36] text-white flex items-center justify-center mb-4">
+                  {pilar.icon}
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {pilar.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {pilar.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
