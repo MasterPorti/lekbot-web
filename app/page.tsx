@@ -239,14 +239,14 @@ export default function Home() {
 
           {/* CTA final */}
           <div className="text-center mt-16">
-            <a
-              href="#comprar"
+            <Link
+              href="/lek-2"
               className="inline-flex items-center gap-2 bg-[#dc2a36] text-white font-bold
                          px-10 py-4 rounded-full hover:bg-[#c02030] transition-all duration-200 hover:scale-105"
             >
               Quiero mi Lek 2
               <ChevronRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

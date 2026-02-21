@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Navbar from "../components/Navbar";
+import ProductCarousel from "../components/ProductCarousel";
 import {
   Truck,
   ShieldCheck,
@@ -68,19 +69,7 @@ export default function Lek2Page() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
           {/* Imagen */}
           <div className="w-full lg:w-1/2 flex flex-col items-center gap-4">
-            <div className="relative w-full flex items-center justify-center bg-[#f8f8f8] rounded-3xl p-10 border border-gray-100">
-              {/* Círculos decorativos */}
-              <div className="absolute rounded-full bg-[#dc2a36] w-52 h-52 opacity-10" />
-              <div className="absolute rounded-full bg-[#dc2a36] w-36 h-36 opacity-15" />
-              <Image
-                src="/lekprov22.png"
-                alt="Lek 2"
-                width={420}
-                height={420}
-                className="relative z-10 object-contain drop-shadow-xl"
-                priority
-              />
-            </div>
+            <ProductCarousel />
             {/* Badge envío */}
             <div className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-4 py-2">
               <Truck size={15} className="text-[#dc2a36]" />
@@ -154,7 +143,7 @@ export default function Lek2Page() {
                 <ExternalLink size={15} />
               </a>
               <a
-                href="#video"
+                href="/lek-2/video"
                 className="flex items-center justify-center gap-2 text-gray-700 text-base font-medium
                            px-6 py-4 rounded-full border-2 border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
               >
