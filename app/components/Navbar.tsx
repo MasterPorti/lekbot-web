@@ -9,7 +9,6 @@ import {
   Menu,
   X,
   Zap,
-  UserCircle,
   ChevronRight,
   ArrowRight,
   Package,
@@ -17,7 +16,6 @@ import {
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { getSession, type Session } from "@/lib/session";
 
 const navLinks = [
   {
@@ -59,20 +57,14 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
   const [lastY, setLastY] = useState(0);
   const [scrollSection, setScrollSection] = useState("");
   const [open, setOpen] = useState(false);
-  const [session, setSession] = useState<Session | null>(null);
   const [codigoOpen, setCodigoOpen] = useState(false);
   const [codigo, setCodigo] = useState("");
   const [codigoError, setCodigoError] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
-
-  // Leer sesión al montar
-  useEffect(() => {
-    setSession(getSession());
-  }, [pathname]);
 
   // Cerrar popover al hacer click fuera
   useEffect(() => {
@@ -119,8 +111,6 @@ const [visible, setVisible] = useState(true);
     );
   };
 
-  const firstName = session?.name?.split(" ")[0] ?? "";
-
   function handleContinuar() {
     if (!codigo.trim()) return;
     setCodigoError(true);
@@ -143,7 +133,7 @@ const [visible, setVisible] = useState(true);
               alt="LekBot Logo"
               width={100}
               height={100}
-              className="h-12.5 w-12.5 rounded-md ring-2 ring-[#dc2a36]"
+              className="h-12.5 w-12.5  ring-2 ring-[#dc2a36]"
             />
           </Link>
         </div>
@@ -178,92 +168,95 @@ const [visible, setVisible] = useState(true);
         </ul>
 
         {/* CTA desktop */}
-        <div className="hidden md:flex items-center justify-end w-44" ref={popoverRef}>
-          {session ? (
-            <Link
-              href="/perfil"
-              className="flex items-center gap-2 bg-white/10 text-white text-sm font-bold
-                         px-4 py-2.5 rounded-full hover:bg-white/20 transition-all duration-200"
+        <div
+          className="hidden md:flex items-center justify-end w-44"
+          ref={popoverRef}
+        >
+          <div className="relative">
+            <button
+              onClick={() => setCodigoOpen((v) => !v)}
+              className="flex items-center gap-2 bg-[#dc2a36] text-white text-sm font-bold
+                         px-5 py-2.5 rounded-full hover:bg-[#f03344] transition-all duration-200"
             >
-              <UserCircle size={16} />
-              Hola, {firstName}
-            </Link>
-          ) : (
-            <div className="relative">
-              <button
-                onClick={() => setCodigoOpen((v) => !v)}
-                className="flex items-center gap-2 bg-[#dc2a36] text-white text-sm font-bold
-                           px-5 py-2.5 rounded-full hover:bg-[#f03344] transition-all duration-200"
-              >
-                Ingresar
-                <ChevronRight
-                  size={15}
-                  className={`transition-transform duration-200 ${codigoOpen ? "rotate-90" : ""}`}
+              Ingresar
+              <ChevronRight
+                size={15}
+                className={`transition-transform duration-200 ${
+                  codigoOpen ? "rotate-90" : ""
+                }`}
+              />
+            </button>
+
+            {/* Popover */}
+            {codigoOpen && (
+              <div className="absolute top-full right-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 z-50">
+                <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">
+                  Acceso con kit
+                </p>
+                <p className="text-sm font-semibold text-gray-900 mb-4">
+                  Ingresa tu código Lek
+                </p>
+
+                <input
+                  type="text"
+                  value={codigo}
+                  onChange={(e) => {
+                    setCodigo(e.target.value);
+                    setCodigoError(false);
+                  }}
+                  onKeyDown={(e) => e.key === "Enter" && handleContinuar()}
+                  placeholder="Ej: LEK-XXXX-XXXX"
+                  className={`w-full border rounded-xl px-4 py-2.5 text-sm
+                             focus:outline-none transition-colors mb-1 placeholder:text-gray-300
+                             ${
+                               codigoError
+                                 ? "border-red-400 focus:border-red-400 focus:ring-1 focus:ring-red-400/20"
+                                 : "border-gray-200 focus:border-[#dc2a36] focus:ring-1 focus:ring-[#dc2a36]/20"
+                             }`}
                 />
-              </button>
-
-              {/* Popover */}
-              {codigoOpen && (
-                <div className="absolute top-full right-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 p-5 z-50">
-                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">
-                    Acceso con kit
+                {codigoError && (
+                  <p className="text-xs text-red-500 font-medium mb-2">
+                    Código incorrecto. Verifica e intenta de nuevo.
                   </p>
-                  <p className="text-sm font-semibold text-gray-900 mb-4">
-                    Ingresa tu código Lek
+                )}
+                {!codigoError && <div className="mb-2" />}
+
+                <button
+                  onClick={handleContinuar}
+                  disabled={!codigo.trim()}
+                  className="w-full flex items-center justify-center gap-2 bg-[#dc2a36] text-white
+                             text-sm font-bold py-2.5 rounded-full hover:bg-[#f03344]
+                             transition-all duration-200 disabled:opacity-40"
+                >
+                  Continuar
+                  <ArrowRight size={15} />
+                </button>
+
+                <div className="border-t border-gray-100 mt-4 pt-4">
+                  <p className="text-[11px] text-gray-400 mb-2">
+                    ¿No tienes tu kit aún?
                   </p>
-
-                  <input
-                    type="text"
-                    value={codigo}
-                    onChange={(e) => { setCodigo(e.target.value); setCodigoError(false); }}
-                    onKeyDown={(e) => e.key === "Enter" && handleContinuar()}
-                    placeholder="Ej: LEK-XXXX-XXXX"
-                    className={`w-full border rounded-xl px-4 py-2.5 text-sm
-                               focus:outline-none transition-colors mb-1 placeholder:text-gray-300
-                               ${codigoError ? "border-red-400 focus:border-red-400 focus:ring-1 focus:ring-red-400/20" : "border-gray-200 focus:border-[#dc2a36] focus:ring-1 focus:ring-[#dc2a36]/20"}`}
-                  />
-                  {codigoError && (
-                    <p className="text-xs text-red-500 font-medium mb-2">Código incorrecto. Verifica e intenta de nuevo.</p>
-                  )}
-                  {!codigoError && <div className="mb-2" />}
-
-                  <button
-                    onClick={handleContinuar}
-                    disabled={!codigo.trim()}
-                    className="w-full flex items-center justify-center gap-2 bg-[#dc2a36] text-white
-                               text-sm font-bold py-2.5 rounded-full hover:bg-[#f03344]
-                               transition-all duration-200 disabled:opacity-40"
+                  <Link
+                    href="/lek-2"
+                    onClick={() => setCodigoOpen(false)}
+                    className="flex items-center justify-between bg-[#dc2a36]/5 hover:bg-[#dc2a36]/10
+                               border border-[#dc2a36]/20 rounded-xl px-4 py-3 transition-colors group"
                   >
-                    Continuar
-                    <ArrowRight size={15} />
-                  </button>
-
-                  <div className="border-t border-gray-100 mt-4 pt-4">
-                    <p className="text-[11px] text-gray-400 mb-2">
-                      ¿No tienes tu kit aún?
-                    </p>
-                    <Link
-                      href="/lek-2"
-                      onClick={() => setCodigoOpen(false)}
-                      className="flex items-center justify-between bg-[#dc2a36]/5 hover:bg-[#dc2a36]/10
-                                 border border-[#dc2a36]/20 rounded-xl px-4 py-3 transition-colors group"
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <Package size={15} className="text-[#dc2a36]" />
-                        <span className="text-sm font-semibold text-gray-800">
-                          Consigue tu Lek 2
-                        </span>
-                      </div>
-                      <ChevronRight
-                        size={14}
-                        className="text-[#dc2a36] group-hover:translate-x-0.5 transition-transform"
-                      />
-                    </Link>
-                  </div>
+                    <div className="flex items-center gap-2.5">
+                      <Package size={15} className="text-[#dc2a36]" />
+                      <span className="text-sm font-semibold text-gray-800">
+                        Consigue tu Lek 2
+                      </span>
+                    </div>
+                    <ChevronRight
+                      size={14}
+                      className="text-[#dc2a36] group-hover:translate-x-0.5 transition-transform"
+                    />
+                  </Link>
                 </div>
-              )}
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Hamburger mobile */}
@@ -311,52 +304,49 @@ const [visible, setVisible] = useState(true);
 
           {/* CTA mobile */}
           <li className="mt-2">
-            {session ? (
-              <Link
-                href="/perfil"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 bg-white/10 text-white text-sm font-bold
-                           px-5 py-3 rounded-full hover:bg-white/20 transition-all duration-200 w-full"
-              >
-                <UserCircle size={15} />
-                Hola, {firstName}
-              </Link>
-            ) : (
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
-                <p className="text-xs font-semibold text-gray-400">
-                  Ingresa tu código Lek
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col gap-3">
+              <p className="text-xs font-semibold text-gray-400">
+                Ingresa tu código Lek
+              </p>
+              <input
+                type="text"
+                value={codigo}
+                onChange={(e) => {
+                  setCodigo(e.target.value);
+                  setCodigoError(false);
+                }}
+                placeholder="Ej: LEK-XXXX-XXXX"
+                className={`w-full bg-white/10 border rounded-xl px-4 py-2.5 text-sm text-white
+                           focus:outline-none transition-colors placeholder:text-gray-600
+                           ${
+                             codigoError
+                               ? "border-red-500"
+                               : "border-white/10 focus:border-[#dc2a36]"
+                           }`}
+              />
+              {codigoError && (
+                <p className="text-xs text-red-400 font-medium -mt-1">
+                  Código incorrecto. Verifica e intenta de nuevo.
                 </p>
-                <input
-                  type="text"
-                  value={codigo}
-                  onChange={(e) => { setCodigo(e.target.value); setCodigoError(false); }}
-                  placeholder="Ej: LEK-XXXX-XXXX"
-                  className={`w-full bg-white/10 border rounded-xl px-4 py-2.5 text-sm text-white
-                             focus:outline-none transition-colors placeholder:text-gray-600
-                             ${codigoError ? "border-red-500" : "border-white/10 focus:border-[#dc2a36]"}`}
-                />
-                {codigoError && (
-                  <p className="text-xs text-red-400 font-medium -mt-1">Código incorrecto. Verifica e intenta de nuevo.</p>
-                )}
-                <button
-                  onClick={handleContinuar}
-                  disabled={!codigo.trim()}
-                  className="flex items-center justify-center gap-2 bg-[#dc2a36] text-white text-sm font-bold
-                             py-2.5 rounded-full hover:bg-[#f03344] transition-all duration-200 disabled:opacity-40"
-                >
-                  Continuar <ArrowRight size={14} />
-                </button>
-                <Link
-                  href="/lek-2"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 text-gray-400 hover:text-white
-                             text-xs font-medium transition-colors"
-                >
-                  <Package size={13} />
-                  ¿Aún no tienes tu Lek 2? Consíguelo aquí
-                </Link>
-              </div>
-            )}
+              )}
+              <button
+                onClick={handleContinuar}
+                disabled={!codigo.trim()}
+                className="flex items-center justify-center gap-2 bg-[#dc2a36] text-white text-sm font-bold
+                           py-2.5 rounded-full hover:bg-[#f03344] transition-all duration-200 disabled:opacity-40"
+              >
+                Continuar <ArrowRight size={14} />
+              </button>
+              <Link
+                href="/lek-2"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 text-gray-400 hover:text-white
+                           text-xs font-medium transition-colors"
+              >
+                <Package size={13} />
+                ¿Aún no tienes tu Lek 2? Consíguelo aquí
+              </Link>
+            </div>
           </li>
         </ul>
       </div>

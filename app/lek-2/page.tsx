@@ -14,6 +14,12 @@ import {
   Zap,
   Play,
   ExternalLink,
+  MessageCircle,
+  ChevronDown,
+  Quote,
+  Award,
+  Users,
+  Clock,
 } from "lucide-react";
 
 const ML_URL =
@@ -94,17 +100,27 @@ export default function Lek2Page() {
 
             {/* Precio */}
             <div className="flex items-end gap-3 mb-2">
-              <span className="text-5xl font-bold text-gray-900">$499</span>
+              <span className="text-5xl font-bold text-gray-900">$1,600</span>
               <span className="text-gray-400 line-through text-xl mb-1">
-                $699
+                $2,199
               </span>
               <span className="bg-[#dc2a36] text-white text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-                -29%
+                -27%
               </span>
             </div>
-            <p className="text-sm text-gray-400 mb-8">
+            <p className="text-sm text-gray-400 mb-2">
               Precio en MXN · IVA incluido
             </p>
+            {/* Urgencia */}
+            <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-8">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+              </span>
+              <p className="text-sm text-amber-800 font-medium">
+                <strong>Solo quedan 17 unidades</strong> a precio de lanzamiento
+              </p>
+            </div>
 
             {/* Garantías rápidas */}
             <div className="grid grid-cols-3 gap-3 mb-8">
@@ -224,6 +240,202 @@ export default function Lek2Page() {
         </div>
       </section>
 
+      {/* TESTIMONIOS */}
+      <section className="py-16 px-6 bg-[#f8f8f8]">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+              Lo que dicen los padres
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              +200 familias ya tienen su <span className="text-[#dc2a36]">Lek 2</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                name: "María González",
+                location: "Guadalajara, JAL",
+                text: "Mi hijo de 10 años lo armó completamente solo en una tarde. Ahora no suelta el teléfono programándolo. ¡La mejor inversión!",
+                rating: 5,
+              },
+              {
+                name: "Roberto Hernández",
+                location: "CDMX",
+                text: "Buscaba algo educativo que no fuera una pantalla más. El Lek 2 superó mis expectativas. Mi hija aprendió conceptos de programación jugando.",
+                rating: 5,
+              },
+              {
+                name: "Ana Martínez",
+                location: "Monterrey, NL",
+                text: "El soporte técnico es excelente. Tuve una duda con un sensor y me respondieron en minutos por WhatsApp. 100% recomendado.",
+                rating: 5,
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <Quote size={24} className="text-[#dc2a36] opacity-30 mb-3" />
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={14} fill="#facc15" className="text-yellow-400" />
+                  ))}
+                </div>
+                <p className="font-bold text-gray-900 text-sm">{t.name}</p>
+                <p className="text-xs text-gray-400">{t.location}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center gap-8 mt-10">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#dc2a36]">4.9</p>
+              <p className="text-xs text-gray-500">Calificación promedio</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#dc2a36]">200+</p>
+              <p className="text-xs text-gray-500">Robots vendidos</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-[#dc2a36]">98%</p>
+              <p className="text-xs text-gray-500">Clientes satisfechos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* POR QUÉ LEK 2 - COMPARACIÓN */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+              Compara y decide
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              ¿Por qué elegir <span className="text-[#dc2a36]">Lek 2</span>?
+            </h2>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-4 px-3 font-semibold text-gray-500"></th>
+                  <th className="py-4 px-3 text-center">
+                    <span className="bg-[#dc2a36] text-white text-xs font-bold px-3 py-1 rounded-full">Lek 2</span>
+                  </th>
+                  <th className="py-4 px-3 text-center text-gray-400">Kits genéricos</th>
+                  <th className="py-4 px-3 text-center text-gray-400">LEGO Mindstorms</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Precio", "$1,600 MXN", "$800 - $1,500", "$8,000+"],
+                  ["App en español", "✓", "Algunos", "✗"],
+                  ["Soporte en México", "✓ WhatsApp directo", "✗", "Limitado"],
+                  ["Sin soldadura", "✓", "Variable", "✓"],
+                  ["Garantía", "6 meses", "30 días", "1 año"],
+                  ["Edad recomendada", "8-14 años", "12+", "10+"],
+                  ["Envío gratis", "✓ Todo México", "Variable", "✗"],
+                ].map(([feature, lek, generic, lego], i) => (
+                  <tr key={i} className="border-b border-gray-100">
+                    <td className="py-3 px-3 font-medium text-gray-700">{feature}</td>
+                    <td className="py-3 px-3 text-center font-semibold text-gray-900">{lek}</td>
+                    <td className="py-3 px-3 text-center text-gray-400">{generic}</td>
+                    <td className="py-3 px-3 text-center text-gray-400">{lego}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* GARANTÍA DESTACADA */}
+      <section className="py-10 px-6 bg-green-50 border-y border-green-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <ShieldCheck size={40} className="text-green-600 mx-auto mb-4" />
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+            Garantía de satisfacción de 30 días
+          </h3>
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+            Si el Lek 2 no cumple tus expectativas, <strong>te devolvemos el 100% de tu dinero</strong>.
+            Sin preguntas, sin complicaciones. Así de seguros estamos de nuestro producto.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+              Preguntas frecuentes
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+              ¿Tienes dudas?
+            </h2>
+          </div>
+          <div className="flex flex-col gap-3">
+            {[
+              {
+                q: "¿Es seguro para mi hijo?",
+                a: "Sí. El Lek 2 no requiere soldadura ni herramientas cortantes. Todas las piezas son de plástico ABS no tóxico y los bordes están redondeados. Cumple con normas de seguridad mexicanas.",
+              },
+              {
+                q: "¿Qué pasa si se rompe una pieza?",
+                a: "Contáctanos por WhatsApp y te enviamos la pieza de repuesto sin costo durante los primeros 6 meses. Después, las piezas tienen un costo mínimo.",
+              },
+              {
+                q: "¿Necesita baterías adicionales?",
+                a: "No. El Lek 2 incluye una batería recargable de larga duración (4-6 horas) con cable USB-C. Solo necesitas un cargador de celular estándar.",
+              },
+              {
+                q: "¿Funciona sin internet?",
+                a: "Sí. La conexión es por Bluetooth directo entre tu teléfono y el robot. No necesitas WiFi ni datos móviles para controlarlo.",
+              },
+              {
+                q: "¿En cuánto tiempo llega mi pedido?",
+                a: "Enviamos en 24-48 horas hábiles. El tiempo de entrega es de 3-7 días dependiendo de tu ubicación. Recibirás un número de rastreo por correo.",
+              },
+              {
+                q: "¿La app está en español?",
+                a: "Sí. La LekApp está 100% en español y fue diseñada pensando en niños mexicanos. Incluye tutoriales paso a paso y ejemplos de proyectos.",
+              },
+            ].map((faq, i) => (
+              <details
+                key={i}
+                className="group bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden"
+              >
+                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
+                  <span className="font-semibold text-gray-900 text-sm">{faq.q}</span>
+                  <ChevronDown
+                    size={18}
+                    className="text-gray-400 group-open:rotate-180 transition-transform duration-200"
+                  />
+                </summary>
+                <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+          <p className="text-center text-sm text-gray-400 mt-8">
+            ¿Tienes otra pregunta?{" "}
+            <a
+              href="https://wa.me/5215512345678?text=Hola,%20tengo%20una%20pregunta%20sobre%20el%20Lek%202"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#dc2a36] font-semibold hover:underline"
+            >
+              Escríbenos por WhatsApp
+            </a>
+          </p>
+        </div>
+      </section>
+
       <section
         id="comprar"
         className="py-20 px-6 bg-gray-900 relative overflow-hidden"
@@ -250,15 +462,15 @@ export default function Lek2Page() {
 
           {/* Precios */}
           <div className="flex items-center justify-center gap-4 mb-10">
-            <span className="text-gray-500 line-through text-2xl">$699</span>
+            <span className="text-gray-500 line-through text-2xl">$2,199</span>
             <div className="flex items-end gap-2">
               <span className="text-6xl md:text-7xl font-bold text-white">
-                $499
+                $1,600
               </span>
               <span className="text-gray-500 mb-2 text-sm">MXN</span>
             </div>
             <div className="bg-[#dc2a36] text-white text-lg font-bold px-3 py-1.5 rounded-xl">
-              −29%
+              −27%
             </div>
           </div>
 
@@ -326,6 +538,19 @@ export default function Lek2Page() {
           </p>
         </div>
       </section>
+
+      {/* WHATSAPP FLOTANTE */}
+      <a
+        href="https://wa.me/5215512345678?text=Hola,%20me%20interesa%20el%20Lek%202"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white
+                   pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-[#20bd5a]
+                   transition-all duration-200 hover:scale-105 group"
+      >
+        <MessageCircle size={22} fill="white" />
+        <span className="text-sm font-semibold hidden sm:inline">¿Dudas? Escríbenos</span>
+      </a>
     </main>
   );
 }
