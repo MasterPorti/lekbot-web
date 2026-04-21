@@ -20,6 +20,7 @@ import Navbar from "./components/Navbar";
 import Link from "next/link";
 import RotatingText from "./components/RotatingText";
 import LandingAnimations from "./components/LandingAnimations";
+import InteractiveDots from "./components/InteractiveDots";
 
 const steps = [
   {
@@ -50,14 +51,10 @@ const steps = [
 
 export default function Home() {
   return (
-    <main
-      className="min-h-screen bg-[#f3f4de]"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
-        backgroundSize: "20px 20px",
-      }}
-    >
+    <>
+      <InteractiveDots />
+      <main className="min-h-screen">
+      <div className="relative z-[1]">
       <LandingAnimations />
       <Navbar />
 
@@ -76,7 +73,7 @@ export default function Home() {
           <div className="hero-circle absolute z-0 rounded-full bg-[#f8a0a8] w-[34%]  aspect-square" />
           <Image
             src="/lekprov22.png"
-            alt="Lek 2"
+            alt="Lek 2 — Kit de robótica educativa para niños, robot programable desde el celular"
             width={480}
             height={480}
             className="hero-robot relative z-10 object-contain drop-shadow-xl w-full"
@@ -86,10 +83,12 @@ export default function Home() {
 
         {/* ── IZQUIERDA (desktop) / CENTRO (mobile): texto ── */}
         <div className="w-full min-[920px]:w-2/3 flex flex-col items-center min-[920px]:items-start">
-          {/* Badge */}
-          <div className="hero-badge flex items-center gap-2 bg-[#dc2a36] text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-5 tracking-widest uppercase">
-            <Star size={12} fill="white" />
-            Nuevo — Lek 2
+          {/* Precio lanzamiento */}
+          <div className="hero-badge inline-flex items-center gap-2 mb-6 bg-[#fff3f3] border border-[#dc2a36]/30 rounded-lg px-3 py-1.5">
+            <span className="text-[#dc2a36] font-black text-sm leading-none">!</span>
+            <p className="text-[#dc2a36] text-xs font-semibold">
+              Spoiler: nunca va a estar más barato que esto.
+            </p>
           </div>
 
           {/* Título */}
@@ -107,7 +106,7 @@ export default function Home() {
             <div className="hero-circle absolute z-0 rounded-full bg-[#f8a0a8] w-12 h-12 sm:w-17 sm:h-17" />
             <Image
               src="/lekprov22.png"
-              alt="Lek 2"
+              alt="Lek 2 — Robot educativo programable para niños, kit de robótica armable en casa"
               width={320}
               height={320}
               className="hero-robot relative z-10 object-contain drop-shadow-xl w-64 sm:w-80"
@@ -138,7 +137,9 @@ export default function Home() {
 
           {/* Descripción */}
           <p className="hero-desc text-base min-[920px]:text-lg text-gray-600 leading-relaxed mb-6">
-            Construye, programa y controla tu robot desde cualquier lugar con la{" "}
+            El <strong className="text-gray-900">kit de robótica para niños</strong>{" "}
+            más accesible de México. Construye, programa y controla tu robot
+            educativo desde el celular con la{" "}
             <strong className="text-[#dc2a36]">LekApp</strong>.{" "}
             <span className="text-gray-900 font-medium">
               Sin soldadura, sin experiencia previa.
@@ -202,7 +203,7 @@ export default function Home() {
               De la caja a tu control
             </p>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Así funciona el <span className="text-[#dc2a36]">Lek 2.</span>
+              Así funciona el <span className="text-[#dc2a36]">Lek 2</span>, el kit de robótica para niños.
             </h2>
           </div>
 
@@ -359,12 +360,7 @@ export default function Home() {
       {/* QUIÉNES SOMOS */}
       <section
         id="quienes-somos"
-        className="about-section py-24 px-6 bg-[#f3f4de]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
-        }}
+        className="about-section py-24 px-6"
       >
         <div className="max-w-5xl mx-auto">
           {/* Encabezado */}
@@ -495,6 +491,8 @@ export default function Home() {
         </div>
       </section>
 
-    </main>
+      </div>
+      </main>
+    </>
   );
 }

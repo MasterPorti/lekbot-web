@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import ProductCarousel from "../components/ProductCarousel";
@@ -22,8 +23,58 @@ import {
   Clock,
 } from "lucide-react";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://lekbot.com";
+
 const ML_URL =
   "https://www.mercadolibre.com.mx/disco-solido-ssd-interno-adata-ultimate-su630-asu630ss-480gq-r-480gb/p/MLM26797016";
+
+export const metadata: Metadata = {
+  title:
+    "Lek 2 — Kit de robótica para niños en México | Robot educativo programable",
+  description:
+    "Lek 2: kit de robótica para niños que se arma en casa y se programa desde el celular con la LekApp. Robot educativo sin soldadura, desde 8 años. Envío gratis a todo México. $1,600 MXN.",
+  keywords: [
+    "Lek 2",
+    "robótica para niños",
+    "kit de robótica para niños",
+    "robot educativo para niños",
+    "robot programable",
+    "robot armable para niños",
+    "juguete STEM México",
+    "robótica educativa México",
+    "regalo educativo niños 8 años",
+    "kit robot bluetooth",
+  ],
+  alternates: {
+    canonical: "/lek-2",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_MX",
+    url: `${SITE_URL}/lek-2`,
+    siteName: "LekBot",
+    title:
+      "Lek 2 — Kit de robótica para niños programable desde el celular",
+    description:
+      "El robot educativo que los niños arman en casa y programan desde el celular. Kit completo, sin soldadura, desde 8 años. Envío gratis a todo México.",
+    images: [
+      {
+        url: "/lekprov22.png",
+        width: 1200,
+        height: 630,
+        alt: "Lek 2 — Kit de robótica educativa para niños",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lek 2 — Kit de robótica para niños en México",
+    description:
+      "Robot educativo que los niños arman y programan desde el celular. Envío gratis en México.",
+    images: ["/lekprov22.png"],
+  },
+};
 
 const specs = [
   { label: "Conectividad", value: "Bluetooth" },
@@ -65,9 +116,196 @@ const garantias = [
   },
 ];
 
+const faqs = [
+  {
+    q: "¿Es seguro para mi hijo?",
+    a: "Sí. El Lek 2 no requiere soldadura ni herramientas cortantes. Todas las piezas son de plástico ABS no tóxico y los bordes están redondeados. Cumple con normas de seguridad mexicanas.",
+  },
+  {
+    q: "¿Qué pasa si se rompe una pieza?",
+    a: "Contáctanos por WhatsApp y te enviamos la pieza de repuesto sin costo durante los primeros 6 meses. Después, las piezas tienen un costo mínimo.",
+  },
+  {
+    q: "¿Necesita baterías adicionales?",
+    a: "No. El Lek 2 incluye una batería recargable de larga duración (4-6 horas) con cable USB-C. Solo necesitas un cargador de celular estándar.",
+  },
+  {
+    q: "¿Funciona sin internet?",
+    a: "Sí. La conexión es por Bluetooth directo entre tu teléfono y el robot. No necesitas WiFi ni datos móviles para controlarlo.",
+  },
+  {
+    q: "¿En cuánto tiempo llega mi pedido?",
+    a: "Enviamos en 24-48 horas hábiles. El tiempo de entrega es de 3-7 días dependiendo de tu ubicación. Recibirás un número de rastreo por correo.",
+  },
+  {
+    q: "¿La app está en español?",
+    a: "Sí. La LekApp está 100% en español y fue diseñada pensando en niños mexicanos. Incluye tutoriales paso a paso y ejemplos de proyectos.",
+  },
+];
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Lek 2 — Kit de robótica educativa para niños",
+  alternateName: ["Lek 2", "LekBot Lek 2", "Kit Lek 2"],
+  description:
+    "Kit de robótica para niños. Lek 2 es un robot educativo programable que se arma en casa sin soldadura y se controla desde el celular por Bluetooth con la LekApp. Recomendado desde 8 años.",
+  image: [`${SITE_URL}/lekprov22.png`],
+  sku: "LEK-2",
+  mpn: "LEK-2",
+  brand: {
+    "@type": "Brand",
+    name: "LekBot",
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "LekBot",
+  },
+  category: "Juguetes educativos / Robótica STEM",
+  audience: {
+    "@type": "PeopleAudience",
+    suggestedMinAge: 8,
+  },
+  offers: {
+    "@type": "Offer",
+    url: `${SITE_URL}/lek-2`,
+    priceCurrency: "MXN",
+    price: "1600",
+    priceValidUntil: "2026-12-31",
+    availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition",
+    seller: {
+      "@type": "Organization",
+      name: "LekBot",
+    },
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: "0",
+        currency: "MXN",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "MX",
+      },
+      deliveryTime: {
+        "@type": "ShippingDeliveryTime",
+        handlingTime: {
+          "@type": "QuantitativeValue",
+          minValue: 1,
+          maxValue: 2,
+          unitCode: "DAY",
+        },
+        transitTime: {
+          "@type": "QuantitativeValue",
+          minValue: 3,
+          maxValue: 7,
+          unitCode: "DAY",
+        },
+      },
+    },
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "MX",
+      returnPolicyCategory:
+        "https://schema.org/MerchantReturnFiniteReturnWindow",
+      merchantReturnDays: 30,
+      returnMethod: "https://schema.org/ReturnByMail",
+      returnFees: "https://schema.org/FreeReturn",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "200",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: [
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: { "@type": "Person", name: "María González" },
+      reviewBody:
+        "Mi hijo de 10 años lo armó completamente solo en una tarde. Ahora no suelta el teléfono programándolo. ¡La mejor inversión!",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: { "@type": "Person", name: "Roberto Hernández" },
+      reviewBody:
+        "Buscaba algo educativo que no fuera una pantalla más. El Lek 2 superó mis expectativas. Mi hija aprendió conceptos de programación jugando.",
+    },
+    {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+      },
+      author: { "@type": "Person", name: "Ana Martínez" },
+      reviewBody:
+        "El soporte técnico es excelente. Tuve una duda con un sensor y me respondieron en minutos por WhatsApp.",
+    },
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Lek 2 — Kit de robótica para niños",
+      item: `${SITE_URL}/lek-2`,
+    },
+  ],
+};
+
 export default function Lek2Page() {
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar />
 
       {/* HERO PRODUCTO */}
@@ -85,17 +323,19 @@ export default function Lek2Page() {
 
           {/* Info compra */}
           <div className="w-full lg:w-1/2 flex flex-col">
-            {/* Badge nuevo */}
-            <div className="flex items-center gap-2 bg-[#dc2a36] text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4 w-fit tracking-widest uppercase">
-              <Star size={11} fill="white" />
-              Nuevo — Edición 2025
+            {/* Precio lanzamiento */}
+            <div className="inline-flex items-center gap-2 mb-4 bg-[#fff3f3] border border-[#dc2a36]/30 rounded-lg px-3 py-1.5">
+              <span className="text-[#dc2a36] font-black text-sm leading-none">!</span>
+              <p className="text-[#dc2a36] text-xs font-semibold">
+                Spoiler: nunca va a estar más barato que esto.
+              </p>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
-              Lek 2
+              Lek 2 <span className="text-gray-400 font-normal text-2xl md:text-3xl block mt-1">Kit de robótica para niños</span>
             </h1>
             <p className="text-gray-500 text-base mb-6">
-              El robot que armas en casa y programas desde tu teléfono.
+              Robot educativo programable que los niños arman en casa y controlan desde el celular con la LekApp. Desde 8 años.
             </p>
 
             {/* Precio */}
@@ -148,13 +388,21 @@ export default function Lek2Page() {
                            py-4 rounded-full hover:bg-[#FFD000] transition-all duration-200 hover:scale-105
                            shadow-lg shadow-[#FFE600]/40"
               >
-                <Image
-                  src="/mercadolibre.svg"
-                  alt="Mercado Libre"
-                  width={22}
-                  height={22}
-                  className="shrink-0"
-                />
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1447 1097" fill="none">
+<g clip-path="url(#clip0_2082_5)">
+<path d="M1447.13 518.575C1447.13 233.765 1123.45 0.587646 723.78 0.587646C324.111 0.587646 0.424805 233.765 0.424805 518.575V548.556C0.424805 851.687 283.08 1096.52 723.78 1096.52C1166 1096.52 1447.13 851.687 1447.13 548.556V518.575Z" fill="#2D3277"/>
+<path d="M1421.3 518.575C1421.3 786.73 1109.77 1004.92 726.818 1004.92C343.866 1004.92 32.3374 786.73 32.3374 518.575C32.3374 250.421 343.866 32.2336 726.818 32.2336C1109.77 32.2336 1421.3 250.421 1421.3 518.575Z" fill="#FFE600"/>
+<path d="M495.831 365.346C495.831 365.346 488.232 373.672 492.791 380.334C503.429 395.324 536.862 403.653 571.814 395.325C591.57 390.328 618.923 367.01 643.237 345.358C670.591 322.04 697.945 297.056 725.299 288.729C754.172 278.735 772.408 283.732 784.566 287.064C798.243 292.06 813.439 302.053 839.273 322.04C886.382 360.348 1077.86 543.56 1111.29 575.206C1137.13 561.881 1255.66 506.918 1416.74 466.944C1403.06 373.673 1351.4 287.064 1272.37 217.111C1162.96 267.078 1027.71 293.727 895.499 223.774C895.499 223.774 824.077 187.13 752.653 188.795C647.797 192.126 603.727 240.428 555.098 293.726L495.831 365.346Z" fill="white"/>
+<path d="M1103.69 595.19C1102.17 593.525 878.785 380.333 828.636 338.694C799.763 315.376 783.045 308.714 766.329 305.383C757.211 303.717 745.054 305.384 735.936 308.715C713.141 315.378 681.23 338.695 653.876 362.012C625.003 386.996 599.168 410.315 574.853 415.311C542.94 423.639 504.95 413.645 488.234 400.321C480.635 395.324 476.076 388.662 473.037 382C466.959 365.345 479.116 352.02 480.635 350.354L541.422 277.069L562.697 253.751C542.942 257.082 524.705 262.08 506.469 267.076C483.674 273.739 462.4 280.4 441.125 280.4C432.007 280.4 383.378 272.073 374.26 268.742C318.033 252.086 269.402 235.431 196.459 198.789C109.839 270.408 50.5731 358.682 33.8569 456.95C46.0142 460.281 67.2886 466.943 74.8868 468.608C272.442 516.91 333.229 566.876 345.386 576.87C357.543 561.88 374.259 553.551 394.014 553.551C415.289 553.551 435.045 565.211 447.202 583.532C457.84 573.539 474.557 565.211 494.313 565.211C503.431 565.211 512.547 566.876 523.185 570.207C545.979 578.535 556.618 595.191 562.697 610.181C570.295 606.85 579.412 603.518 590.05 603.518C600.687 603.518 611.326 606.849 623.483 611.846C659.955 628.501 666.033 668.476 662.994 698.456H670.592C714.662 698.456 749.613 736.763 749.613 785.064C749.613 800.054 746.574 813.379 740.496 825.038C752.653 831.7 781.526 848.355 808.88 845.024C830.155 841.693 837.753 835.03 840.793 830.033C842.312 826.702 845.351 823.371 842.312 820.04L786.085 751.753C786.085 751.753 776.967 741.759 780.006 738.428C783.046 735.097 789.125 740.094 793.684 743.425C822.557 770.074 855.989 808.382 855.989 808.382C855.989 808.382 859.028 813.379 871.186 816.71C881.823 818.376 901.579 816.709 915.256 805.05C918.295 801.719 922.854 798.388 924.374 795.057C938.05 775.07 922.854 755.083 922.854 755.083L857.508 675.138C857.508 675.138 848.392 665.144 851.431 661.813C854.471 658.481 860.548 663.479 865.107 666.81C886.382 685.131 915.257 718.443 942.61 748.423C948.689 753.419 973.003 770.073 1004.92 746.755C1024.67 731.765 1029.23 715.111 1027.71 701.786C1026.19 685.131 1014.03 671.805 1014.03 671.805L925.893 573.539C925.893 573.539 916.776 565.211 919.816 560.214C922.855 556.883 928.932 561.88 933.491 565.211C962.364 591.86 1038.35 668.475 1038.35 668.475C1039.87 668.475 1065.7 690.128 1099.13 666.81C1111.29 658.482 1118.89 646.824 1118.89 631.834C1120.41 610.181 1103.69 595.19 1103.69 595.19Z" fill="white"/>
+<path d="M673.631 720.107C659.954 720.107 644.758 728.434 643.238 728.434C641.718 728.434 643.238 721.773 644.757 718.441C646.277 715.11 664.513 655.151 620.443 633.498C587.011 616.843 565.736 635.164 559.657 643.491C558.137 645.157 556.618 645.157 556.618 643.491C556.618 633.498 552.059 603.518 521.666 593.525C479.115 578.535 453.281 611.847 445.683 623.506C442.644 596.857 422.889 576.869 397.055 576.869C369.701 576.869 348.425 600.186 348.425 630.166C348.425 660.146 369.701 683.465 397.055 683.465C410.732 683.465 421.369 678.468 430.486 668.475V670.14C428.967 683.464 424.407 731.766 469.997 750.087C488.233 758.415 503.431 751.753 517.108 741.76C521.667 738.429 521.666 740.094 521.666 743.425C520.146 755.084 521.666 781.732 556.618 796.722C582.453 808.381 597.648 796.722 606.766 786.729C611.325 781.732 612.845 783.399 612.845 790.061C614.365 825.038 641.718 853.351 673.631 853.351C707.063 853.351 734.417 823.371 734.417 786.729C734.417 750.087 707.063 720.107 673.631 720.107Z" fill="white"/>
+<path d="M1112.81 570.207C1044.43 505.25 886.382 353.685 842.312 318.708C817.997 298.722 801.282 287.063 786.085 283.732C780.007 282.067 770.888 278.735 758.731 278.735C748.093 278.735 735.937 280.401 723.78 285.397C696.426 295.391 669.072 318.709 641.718 342.027L640.199 343.692C615.885 365.344 590.051 386.997 570.295 391.993C561.177 393.659 553.578 395.324 544.46 395.324C523.185 395.324 503.43 388.661 495.832 378.668C494.312 377.003 495.831 373.671 498.87 370.34L559.657 298.723C606.766 247.09 650.837 198.788 754.173 195.457H758.731C822.556 195.457 886.382 227.102 893.98 230.433C954.767 262.079 1015.55 278.735 1077.86 278.735C1143.2 278.735 1210.07 260.414 1279.97 225.438C1272.37 218.775 1263.26 210.447 1255.66 203.785C1193.35 233.765 1135.6 247.089 1077.86 247.089C1020.11 247.089 962.366 232.1 906.138 202.12C903.099 200.454 833.194 163.811 758.731 163.811H752.654C666.033 165.476 617.405 198.788 585.492 228.768C553.579 228.768 526.225 238.761 501.911 245.424C480.636 252.086 460.88 257.084 442.644 257.084H419.849C398.574 257.084 292.198 228.769 208.617 192.127C199.499 198.789 191.902 205.45 182.784 212.112C270.924 252.086 378.819 282.066 412.251 285.397C421.369 285.397 432.006 287.062 442.644 287.062C465.439 287.062 486.714 280.401 509.509 273.739C523.186 270.408 536.862 265.41 550.539 262.079L538.381 275.404L477.595 348.689C473.036 353.686 462.399 368.675 468.477 385.331C471.517 391.993 477.595 398.654 485.193 405.317C500.39 415.31 526.225 423.639 550.539 423.639C559.657 423.639 568.774 421.973 576.372 420.307C602.207 413.645 629.561 390.328 656.915 365.345C679.71 345.358 711.622 320.374 735.936 312.046C743.534 310.38 751.133 308.716 758.731 308.716H764.81C781.526 310.381 796.723 317.044 825.596 340.362C875.745 382 1099.13 595.19 1100.65 596.856C1100.65 596.856 1114.33 610.181 1114.33 633.499C1114.33 645.158 1106.73 656.817 1096.1 665.145C1086.98 671.807 1076.34 675.138 1067.22 675.138C1052.02 675.138 1041.39 666.81 1041.39 666.81C1041.39 666.81 963.885 590.193 936.531 563.544C931.972 558.548 927.413 555.217 922.854 555.217C919.815 555.217 918.295 556.883 916.775 558.549C912.216 565.211 916.776 573.538 922.854 578.535L1012.51 676.803C1012.51 676.803 1023.15 688.462 1024.67 703.452C1024.67 720.107 1018.59 733.432 1003.4 743.425C992.759 751.753 982.12 755.083 971.482 755.083C957.805 755.083 948.688 748.421 945.649 746.756L931.972 733.432C909.177 708.449 884.864 681.8 866.628 666.81C862.069 663.479 857.509 658.482 852.95 658.482C851.431 658.482 848.391 658.482 846.871 661.813C845.352 663.478 843.832 668.475 848.391 676.803C849.91 680.134 852.95 681.801 852.95 681.801L918.294 761.746C918.294 761.746 931.973 780.067 919.816 795.057L916.775 798.39L910.696 805.05C900.059 815.043 884.862 816.71 878.784 816.71H869.666C863.588 815.045 859.028 813.379 855.989 810.048C852.95 805.051 819.518 770.074 792.164 745.09C789.125 741.759 784.565 738.428 780.006 738.428C778.487 738.428 775.447 740.095 773.927 741.76C769.368 748.422 776.967 758.415 780.006 761.746L836.235 828.368C836.235 828.368 836.233 830.035 834.714 833.366C833.194 836.697 825.597 843.358 805.842 846.689H798.243C776.968 846.689 755.692 835.031 743.534 828.368C748.093 816.709 751.133 803.386 751.133 790.062C751.133 740.095 714.662 700.121 669.073 700.121H666.032C667.552 676.803 664.514 633.499 623.483 615.178C611.326 610.182 600.688 606.851 588.53 606.851C579.412 606.851 571.815 608.515 562.697 611.846C553.579 593.525 539.901 580.202 521.665 573.539C511.028 570.208 501.91 568.542 491.272 568.542C474.556 568.542 459.359 573.539 445.683 585.197C439.081 576.288 430.737 569.118 421.268 564.217C411.799 559.317 401.447 556.811 390.975 556.884C372.74 556.884 354.504 565.21 342.347 578.535C325.631 563.545 257.246 516.909 73.3674 470.274C64.2495 468.608 44.4948 461.947 32.3375 456.95C30.8179 466.944 29.2975 478.603 27.7778 490.262C27.7778 490.262 61.2113 498.589 68.8096 500.255C255.727 545.225 318.032 593.525 328.67 601.853C325.631 611.846 324.11 621.841 324.11 631.834C324.11 675.138 356.023 708.449 394.014 708.449C398.573 708.449 403.132 708.449 407.691 706.784C413.77 738.429 432.006 761.747 460.879 773.406C469.997 776.737 477.595 778.402 485.193 778.402C489.752 778.402 495.832 778.402 501.911 776.736C506.47 791.726 518.626 810.047 545.979 821.706C555.097 826.702 564.216 828.368 573.334 828.368C580.932 828.368 588.531 826.704 594.609 823.373C606.767 856.684 637.16 880 670.592 880C693.387 880 714.662 870.008 729.859 851.686C743.536 860.014 770.889 875.005 799.763 875.005H810.399C839.273 871.674 851.43 858.349 857.508 850.021C859.028 848.356 859.029 846.689 860.549 845.024C866.627 846.689 874.226 848.356 883.344 848.356C898.54 848.356 913.737 843.358 928.933 830.033C944.13 818.375 954.767 801.719 954.767 786.729C959.325 788.395 965.404 788.395 969.963 788.395C985.16 788.395 1001.88 783.398 1017.07 771.739C1045.95 751.752 1050.51 723.439 1050.51 706.784C1055.06 708.449 1061.14 708.449 1065.7 708.449C1080.9 708.449 1096.1 703.452 1109.77 693.459C1128.01 680.134 1138.65 661.814 1140.17 640.162C1141.69 625.172 1137.12 610.18 1131.05 596.856C1179.67 573.538 1289.09 530.233 1419.78 496.922C1419.78 485.263 1418.26 475.27 1415.22 463.611C1258.7 500.253 1141.68 555.217 1112.81 570.207ZM673.631 848.356C643.238 848.356 618.924 821.706 617.404 788.395C617.404 785.063 617.404 778.402 611.325 778.402C608.286 778.402 606.766 780.068 603.727 781.734C597.648 788.396 588.53 795.057 576.372 795.057C570.294 795.057 564.216 793.393 558.137 790.062C526.225 775.072 524.705 751.754 526.225 741.76C526.225 738.429 526.225 736.763 524.706 735.098L523.185 733.432H521.665C520.146 733.432 518.626 733.432 515.586 736.763C506.468 743.425 497.352 746.756 488.234 746.756C483.675 746.756 477.596 745.091 473.037 743.425C430.487 725.104 433.526 681.8 436.565 668.475C436.565 665.144 436.565 663.478 435.046 661.813L432.005 658.482L428.967 661.813C419.849 670.14 409.211 675.138 398.574 675.138C374.259 675.138 354.503 653.485 354.503 626.836C354.503 600.187 374.259 578.535 398.574 578.535C419.849 578.535 439.605 596.856 442.644 620.174L444.163 633.499L450.242 621.839C450.242 620.173 468.478 590.195 501.911 591.86C507.989 591.86 514.067 593.525 521.665 595.19C547.499 603.518 552.058 630.168 552.058 640.162C552.058 646.824 556.618 646.822 556.618 646.822C558.138 646.822 561.176 645.158 561.176 643.492C565.735 638.495 576.374 628.502 593.09 628.502C600.688 628.502 608.286 630.168 617.404 635.164C658.435 655.151 640.199 711.779 640.199 713.445C637.16 723.438 635.64 726.769 640.199 730.1H643.238C644.757 730.1 647.797 730.1 650.836 728.435C656.914 726.769 664.513 723.439 672.111 723.439C702.504 723.439 728.338 751.753 728.338 785.064C729.857 821.706 704.024 848.356 673.631 848.356Z" fill="#2D3277"/>
+</g>
+<defs>
+<clipPath id="clip0_2082_5">
+<rect width="1447" height="1097" fill="white"/>
+</clipPath>
+</defs>
+</svg>
                 Comprar en Mercado Libre
                 <ExternalLink size={15} />
               </a>
@@ -379,32 +627,7 @@ export default function Lek2Page() {
             </h2>
           </div>
           <div className="flex flex-col gap-3">
-            {[
-              {
-                q: "¿Es seguro para mi hijo?",
-                a: "Sí. El Lek 2 no requiere soldadura ni herramientas cortantes. Todas las piezas son de plástico ABS no tóxico y los bordes están redondeados. Cumple con normas de seguridad mexicanas.",
-              },
-              {
-                q: "¿Qué pasa si se rompe una pieza?",
-                a: "Contáctanos por WhatsApp y te enviamos la pieza de repuesto sin costo durante los primeros 6 meses. Después, las piezas tienen un costo mínimo.",
-              },
-              {
-                q: "¿Necesita baterías adicionales?",
-                a: "No. El Lek 2 incluye una batería recargable de larga duración (4-6 horas) con cable USB-C. Solo necesitas un cargador de celular estándar.",
-              },
-              {
-                q: "¿Funciona sin internet?",
-                a: "Sí. La conexión es por Bluetooth directo entre tu teléfono y el robot. No necesitas WiFi ni datos móviles para controlarlo.",
-              },
-              {
-                q: "¿En cuánto tiempo llega mi pedido?",
-                a: "Enviamos en 24-48 horas hábiles. El tiempo de entrega es de 3-7 días dependiendo de tu ubicación. Recibirás un número de rastreo por correo.",
-              },
-              {
-                q: "¿La app está en español?",
-                a: "Sí. La LekApp está 100% en español y fue diseñada pensando en niños mexicanos. Incluye tutoriales paso a paso y ejemplos de proyectos.",
-              },
-            ].map((faq, i) => (
+            {faqs.map((faq, i) => (
               <details
                 key={i}
                 className="group bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden"
