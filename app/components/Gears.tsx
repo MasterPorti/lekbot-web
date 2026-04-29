@@ -1,18 +1,14 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Genera el path SVG de un engrane circular con dientes trapezoidales.
- * - teeth: número de dientes
- * - outerR: radio exterior (punta del diente)
- * - innerR: radio interior (base del diente)
- * - holeR: radio del agujero central
  */
 function gearPath(teeth: number, outerR: number, innerR: number, holeR: number) {
   const step = (Math.PI * 2) / teeth;
-  const toothW = step * 0.35; // ancho angular del diente (en la punta)
-  const baseW = step * 0.5; // ancho angular en la base
+  const toothW = step * 0.35;
+  const baseW = step * 0.5;
   let d = "";
 
   for (let i = 0; i < teeth; i++) {
@@ -33,7 +29,7 @@ function gearPath(teeth: number, outerR: number, innerR: number, holeR: number) 
   }
   d += " Z";
 
-  // Agujero central (subpath en sentido contrario para hueco real con fill-rule:evenodd)
+  // Agujero central
   d += ` M ${holeR} 0`;
   for (let i = 1; i <= 32; i++) {
     const a = (i / 32) * Math.PI * 2;
@@ -50,7 +46,6 @@ interface GearConfig {
   teeth: number;
   outerR: number;
   color: string;
-  /** velocidad base; el signo determina dirección */
   speed: number;
   opacity?: number;
 }
@@ -64,8 +59,16 @@ const gears: GearConfig[] = [
 
 export default function Gears({ className = "" }: { className?: string }) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  // Only render gear paths on the client to avoid SSR/client hydration mismatch
+  // (Math.cos/sin can produce slightly different precision between Node.js and browser)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -78,7 +81,7 @@ export default function Gears({ className = "" }: { className?: string }) {
     const angles = gears.map(() => Math.random() * 360);
 
     const tick = (now: number) => {
-      const dt = (now - last) / 16.6667; // normalizado a frames de 60fps
+      const dt = (now - last) / 16.6667;
       last = now;
 
       groups.forEach((g, i) => {
@@ -94,7 +97,7 @@ export default function Gears({ className = "" }: { className?: string }) {
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [mounted]);
 
   return (
     <svg
@@ -104,22 +107,22 @@ export default function Gears({ className = "" }: { className?: string }) {
       aria-hidden="true"
       className={`pointer-events-none select-none ${className}`}
     >
-      {gears.map((g, i) => (
-        <g
-          key={i}
-          data-gear
-          transform={`translate(${g.cx} ${g.cy})`}
-          style={{ opacity: g.opacity ?? 0.2 }}
-        >
-          <path
-            d={gearPath(g.teeth, g.outerR, g.outerR * 0.78, g.outerR * 0.22)}
-            fill={g.color}
-            fillRule="evenodd"
-          />
-          {/* Detalle de tornillos internos */}
-          <circle cx={0} cy={0} r={g.outerR * 0.12} fill="#000" opacity="0.15" />
-        </g>
-      ))}
+      {mounted &&
+        gears.map((g, i) => (
+          <g
+            key={i}
+            data-gear
+            transform={`translate(${g.cx} ${g.cy})`}
+            style={{ opacity: g.opacity ?? 0.2 }}
+          >
+            <path
+              d={gearPath(g.teeth, g.outerR, g.outerR * 0.78, g.outerR * 0.22)}
+              fill={g.color}
+              fillRule="evenodd"
+            />
+            <circle cx={0} cy={0} r={g.outerR * 0.12} fill="#000" opacity="0.15" />
+          </g>
+        ))}
     </svg>
   );
 }
