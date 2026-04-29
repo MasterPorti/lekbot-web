@@ -21,9 +21,6 @@ import Link from "next/link";
 import RotatingText from "./components/RotatingText";
 import LandingAnimations from "./components/LandingAnimations";
 import InteractiveDots from "./components/InteractiveDots";
-import Gears from "./components/Gears";
-import CircuitBoard from "./components/CircuitBoard";
-import BotCursor from "./components/BotCursor";
 import ParticleNetwork from "./components/ParticleNetwork";
 
 const steps = [
@@ -56,7 +53,6 @@ const steps = [
 export default function Home() {
   return (
     <>
-      <BotCursor />
       <InteractiveDots />
       <main className="min-h-screen">
       <div className="relative z-[1]">
@@ -66,15 +62,12 @@ export default function Home() {
       {/* HERO */}
       <section
         id="lek2pro"
-        className="relative min-h-screen pt-24 pb-16 px-6 max-w-7xl mx-auto
+        className="min-h-screen pt-24 pb-16 px-6 max-w-7xl mx-auto
                    flex flex-col items-center text-center
                    min-[920px]:flex-row min-[920px]:items-center min-[920px]:text-left min-[920px]:gap-4"
       >
-        {/* Circuit board decorativo de fondo */}
-        <CircuitBoard className="absolute inset-0 w-full h-full opacity-60 z-0" />
-
         {/* ── DERECHA: imagen (solo desktop) ── */}
-        <div className="hidden min-[920px]:flex w-1/2 items-center justify-center relative order-last z-10">
+        <div className="hidden min-[920px]:flex w-1/2 items-center justify-center relative order-last">
           <div className="hero-circle absolute z-0 rounded-full bg-[#dc2a36] w-[90%]  aspect-square" />
           <div className="hero-circle absolute z-0 rounded-full bg-[#e84d5a] w-[70%]  aspect-square" />
           <div className="hero-circle absolute z-0 rounded-full bg-[#f07078] w-[52%]  aspect-square" />
@@ -90,7 +83,7 @@ export default function Home() {
         </div>
 
         {/* ── IZQUIERDA (desktop) / CENTRO (mobile): texto ── */}
-        <div className="relative z-10 w-full min-[920px]:w-2/3 flex flex-col items-center min-[920px]:items-start">
+        <div className="w-full min-[920px]:w-2/3 flex flex-col items-center min-[920px]:items-start">
           {/* Precio lanzamiento */}
           <div className="hero-badge inline-flex items-center gap-2 mb-6 bg-[#fff3f3] border border-[#dc2a36]/30 rounded-lg px-3 py-1.5">
             <span className="text-[#dc2a36] font-black text-sm leading-none">!</span>
@@ -203,12 +196,8 @@ export default function Home() {
       </section>
 
       {/* CÓMO FUNCIONA */}
-      <section id="como-funciona" className="relative py-16 md:py-28 px-6 bg-white overflow-hidden">
-        {/* Engranes decorativos */}
-        <Gears className="absolute -top-10 -right-10 w-[420px] h-[320px] hidden md:block z-0" />
-        <Gears className="absolute -bottom-16 -left-16 w-[360px] h-[280px] hidden md:block z-0 rotate-180" />
-
-        <div className="relative z-10 max-w-7xl mx-auto">
+      <section id="como-funciona" className="py-16 md:py-28 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
           {/* Encabezado */}
           <div className="steps-header text-center mb-10 md:mb-20">
             <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
