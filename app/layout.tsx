@@ -143,6 +143,34 @@ const websiteJsonLd = {
   },
 };
 
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Lek 2 — Kit de robótica educativo",
+  description:
+    "Robot educativo programable que los niños arman en casa y controlan desde el celular. Sin soldadura, sin herramientas especiales, desde 8 años.",
+  image: `${SITE_URL}/lekprov22.png`,
+  brand: {
+    "@type": "Brand",
+    name: "LekBot",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "1600",
+    priceCurrency: "MXN",
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: "LekBot",
+    },
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    ratingCount: "1",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -161,6 +189,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productJsonLd),
           }}
         />
       </head>

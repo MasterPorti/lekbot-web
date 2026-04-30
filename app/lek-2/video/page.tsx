@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
 import {
@@ -12,8 +13,49 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://lekbot.com";
+
 const ML_URL =
   "https://www.mercadolibre.com.mx/disco-solido-ssd-interno-adata-ultimate-su630-asu630ss-480gq-r-480gb/p/MLM26797016";
+
+export const metadata: Metadata = {
+  title:
+    "Video Lek 2 — Mira el robot educativo en acción | LekBot",
+  description:
+    "Observa cómo el Lek 2 funciona en tiempo real. Robot educativo programable que los niños arman en casa y controlan desde el celular. Sin soldadura, desde 8 años.",
+  keywords: [
+    "Lek 2 video",
+    "robot educativo video",
+    "robótica para niños video",
+    "demostración Lek 2",
+    "robot programable en acción",
+  ],
+  alternates: {
+    canonical: "/lek-2/video",
+  },
+  openGraph: {
+    type: "video.other",
+    url: `${SITE_URL}/lek-2/video`,
+    title: "Video Lek 2 — Robot educativo programable en acción",
+    description:
+      "Mira el Lek 2 funcionando. Robot que se arma en casa y se controla desde el celular.",
+    images: [
+      {
+        url: "/lekprov22.png",
+        width: 1200,
+        height: 630,
+        alt: "Lek 2 en acción",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Video Lek 2 — Robot educativo programable",
+    description: "Mira el Lek 2 funcionando y conócelo mejor",
+    images: ["/lekprov22.png"],
+  },
+};
 
 export default function Lek2VideoPage() {
   return (
