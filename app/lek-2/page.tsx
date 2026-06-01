@@ -293,7 +293,7 @@ const breadcrumbJsonLd = {
 
 export default function Lek2Page() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#f3f4de]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
@@ -315,8 +315,8 @@ export default function Lek2Page() {
           <div className="w-full lg:w-1/2 flex flex-col items-center gap-4">
             <ProductCarousel />
             {/* Badge envío */}
-            <div className="flex items-center gap-2 text-sm text-gray-500 bg-gray-50 border border-gray-200 rounded-full px-4 py-2">
-              <Truck size={15} className="text-[#dc2a36]" />
+            <div className="flex items-center gap-2 text-sm font-bold text-black bg-white border-2 border-black rounded-lg px-4 py-2 shadow-[2px_2px_0px_0px_#000]">
+              <Truck size={15} className="text-[#dc2a36]" strokeWidth={2.5} />
               Envío gratis a toda la República Mexicana
             </div>
           </div>
@@ -324,40 +324,40 @@ export default function Lek2Page() {
           {/* Info compra */}
           <div className="w-full lg:w-1/2 flex flex-col">
             {/* Precio lanzamiento */}
-            <div className="inline-flex items-center gap-2 mb-4 bg-[#fff3f3] border border-[#dc2a36]/30 rounded-lg px-3 py-1.5">
-              <span className="text-[#dc2a36] font-black text-sm leading-none">!</span>
-              <p className="text-[#dc2a36] text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 mb-4 bg-[#facc15] border-2 border-black rounded-lg px-3 py-1.5 shadow-[2px_2px_0px_0px_#000]">
+              <span className="bg-black text-[#facc15] font-black text-xs w-4 h-4 rounded-full flex items-center justify-center">!</span>
+              <p className="text-black text-xs font-bold uppercase tracking-wider">
                 Spoiler: nunca va a estar más barato que esto.
               </p>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-2">
-              Lek 2 <span className="text-gray-400 font-normal text-2xl md:text-3xl block mt-1">Kit de robótica para niños</span>
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mb-2 uppercase font-(family-name:--font-display)">
+              Lek 2 <span className="text-[#dc2a36] font-bold text-2xl md:text-3xl block mt-1">Kit de robótica para niños</span>
             </h1>
-            <p className="text-gray-500 text-base mb-6">
+            <p className="text-gray-700 text-base mb-6 font-medium">
               Robot educativo programable que los niños arman en casa y controlan desde el celular con la LekApp. Desde 8 años.
             </p>
 
             {/* Precio */}
             <div className="flex items-end gap-3 mb-2">
-              <span className="text-5xl font-bold text-gray-900">$1,600</span>
-              <span className="text-gray-400 line-through text-xl mb-1">
+              <span className="text-5xl font-black text-gray-900">$1,600</span>
+              <span className="text-gray-500 line-through text-xl mb-1 font-bold">
                 $2,199
               </span>
-              <span className="bg-[#dc2a36] text-white text-xs font-bold px-2.5 py-1 rounded-full mb-1">
+              <span className="bg-[#facc15] text-black text-xs font-black px-2.5 py-1 border-2 border-black rounded-lg mb-1 shadow-[2px_2px_0px_0px_#000]">
                 -27%
               </span>
             </div>
-            <p className="text-sm text-gray-400 mb-2">
+            <p className="text-sm text-gray-600 mb-2 font-bold uppercase tracking-wider">
               Precio en MXN · IVA incluido
             </p>
             {/* Urgencia */}
-            <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-2.5 mb-8">
+            <div className="flex items-center gap-2 bg-amber-100 border-2 border-amber-500 rounded-lg px-4 py-2.5 mb-8 shadow-[3px_3px_0px_0px_#f59e0b]">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-600"></span>
               </span>
-              <p className="text-sm text-amber-800 font-medium">
+              <p className="text-sm text-amber-950 font-bold uppercase tracking-wide">
                 <strong>Solo quedan 17 unidades</strong> a precio de lanzamiento
               </p>
             </div>
@@ -367,11 +367,11 @@ export default function Lek2Page() {
               {garantias.map((g) => (
                 <div
                   key={g.title}
-                  className="flex flex-col items-center text-center bg-gray-50 border border-gray-100 rounded-2xl p-4 gap-1"
+                  className="flex flex-col items-center text-center bg-white border-2 border-black rounded-lg p-4 gap-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
                 >
-                  <span className="text-[#dc2a36]">{g.icon}</span>
-                  <p className="text-xs font-bold text-gray-900">{g.title}</p>
-                  <p className="text-[11px] text-gray-400 leading-tight">
+                  <span className="text-[#dc2a36] font-bold">{g.icon}</span>
+                  <p className="text-xs font-black text-gray-900 uppercase tracking-tight">{g.title}</p>
+                  <p className="text-[10px] text-gray-600 leading-tight font-medium">
                     {g.desc}
                   </p>
                 </div>
@@ -379,14 +379,16 @@ export default function Lek2Page() {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
                 href={ML_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2.5 bg-[#FFE600] text-gray-900 text-base font-bold
-                           py-4 rounded-full hover:bg-[#FFD000] transition-all duration-200 hover:scale-105
-                           shadow-lg shadow-[#FFE600]/40"
+                className="flex-1 flex items-center justify-center gap-2.5 bg-[#FFE600] text-black text-base font-black
+                           py-4 border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                           hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                           active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                           transition-all duration-100 ease-in-out uppercase"
               >
              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1447 1097" fill="none">
 <g clip-path="url(#clip0_2082_5)">
@@ -408,8 +410,11 @@ export default function Lek2Page() {
               </a>
               <a
                 href="/lek-2/video"
-                className="flex items-center justify-center gap-2 text-gray-700 text-base font-medium
-                           px-6 py-4 rounded-full border-2 border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
+                className="flex items-center justify-center gap-2 text-black text-base font-bold bg-white
+                           px-6 py-4 border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white
+                           hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                           active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                           transition-all duration-100 ease-in-out uppercase"
               >
                 <Play size={16} fill="currentColor" />
                 Ver video
@@ -417,7 +422,7 @@ export default function Lek2Page() {
             </div>
 
             {/* Features rápidas */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               {[
                 { icon: <Wifi size={13} />, label: "Bluetooth" },
                 { icon: <Smartphone size={13} />, label: "LekApp" },
@@ -426,7 +431,7 @@ export default function Lek2Page() {
               ].map((f) => (
                 <span
                   key={f.label}
-                  className="flex items-center gap-1.5 text-xs font-medium text-gray-600 bg-gray-100 px-3 py-1.5 rounded-full"
+                  className="flex items-center gap-1.5 text-xs font-bold text-black bg-white border-2 border-black px-3 py-1.5 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 >
                   {f.icon} {f.label}
                 </span>
@@ -437,18 +442,23 @@ export default function Lek2Page() {
       </section>
 
       {/* SPECS */}
-      <section className="py-16 px-6 bg-[#f8f8f8]">
+      <section className="py-16 px-6 bg-[#f3f4de] border-t-[3px] border-black">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-            Especificaciones
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-gray-200 rounded-2xl overflow-hidden bg-white">
+          <div className="text-center mb-8">
+            <span className="inline-block bg-[#dc2a36] text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black shadow-[2px_2px_0px_0px_#000]">
+              Detalles técnicos
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
+              Especificaciones
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-[3px] border-black rounded-xl overflow-hidden bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
             {specs.map((spec, i) => (
               <div
                 key={spec.label}
-                className={`flex items-center justify-between px-6 py-4 border-gray-100
-                  ${i % 2 === 0 ? "sm:border-r" : ""} ${
-                  i < specs.length - 2 ? "border-b" : ""
+                className={`flex items-center justify-between px-6 py-4 border-black
+                  ${i % 2 === 0 ? "sm:border-r-[3px]" : ""} ${
+                  i < specs.length - 2 ? "border-b-[3px]" : "border-b-[3px] sm:border-b-0"
                 }`}
               >
                 <span className="text-sm text-gray-500">{spec.label}</span>
@@ -462,24 +472,26 @@ export default function Lek2Page() {
       </section>
 
       {/* QUÉ INCLUYE */}
-      <section id="incluye" className="py-16 px-6 bg-white">
+      <section id="incluye" className="py-16 px-6 bg-white border-t-[3px] border-black">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2 text-center">
-            ¿Qué incluye el kit?
-          </h2>
-          <p className="text-gray-400 text-center text-sm mb-10">
-            Todo lo que necesitas para armar tu robot desde cero.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="text-center mb-8">
+            <span className="inline-block bg-[#facc15] text-black text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
+              Contenido de la caja
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
+              ¿Qué incluye el kit?
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {incluye.map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 bg-gray-50 border border-gray-100 rounded-2xl px-5 py-4"
+                className="flex items-start gap-3 bg-white border-2 border-black rounded-lg px-5 py-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
-                <div className="w-5 h-5 rounded-full bg-[#dc2a36] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-[#dc2a36] border border-black flex items-center justify-center shrink-0 mt-0.5">
                   <Check size={11} strokeWidth={3} className="text-white" />
                 </div>
-                <span className="text-sm text-gray-700 font-medium">
+                <span className="text-sm text-gray-800 font-bold">
                   {item}
                 </span>
               </div>
@@ -489,17 +501,17 @@ export default function Lek2Page() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="py-16 px-6 bg-[#f8f8f8]">
+      <section className="py-16 px-6 bg-[#f3f4de] border-t-[3px] border-black">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#dc2a36] text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               Lo que dicen los padres
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              +200 familias ya tienen su <span className="text-[#dc2a36]">Lek 2</span>
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
+              +200 familias ya tienen su <span className="underline decoration-4 decoration-[#dc2a36]">Lek 2</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 name: "María González",
@@ -522,10 +534,10 @@ export default function Lek2Page() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border-[3px] border-black rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-100 ease-in-out"
               >
-                <Quote size={24} className="text-[#dc2a36] opacity-30 mb-3" />
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <Quote size={24} className="text-[#dc2a36] opacity-40 mb-3" />
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 font-medium">
                   &ldquo;{t.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-1 mb-3">
@@ -533,49 +545,51 @@ export default function Lek2Page() {
                     <Star key={i} size={14} fill="#facc15" className="text-yellow-400" />
                   ))}
                 </div>
-                <p className="font-bold text-gray-900 text-sm">{t.name}</p>
-                <p className="text-xs text-gray-400">{t.location}</p>
+                <p className="font-black text-gray-900 text-sm uppercase">{t.name}</p>
+                <p className="text-xs text-gray-500 font-bold">{t.location}</p>
               </div>
             ))}
           </div>
-          <div className="flex justify-center gap-8 mt-10">
+          <div className="flex justify-center gap-8 mt-12 bg-white border-2 border-black rounded-lg p-6 max-w-md mx-auto shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
             <div className="text-center">
-              <p className="text-3xl font-bold text-[#dc2a36]">4.9</p>
-              <p className="text-xs text-gray-500">Calificación promedio</p>
+              <p className="text-3xl font-black text-[#dc2a36]">4.9</p>
+              <p className="text-[10px] font-bold text-gray-500 uppercase">Promedio</p>
             </div>
+            <div className="w-px bg-black/20 self-stretch" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-[#dc2a36]">200+</p>
-              <p className="text-xs text-gray-500">Robots vendidos</p>
+              <p className="text-3xl font-black text-[#dc2a36]">200+</p>
+              <p className="text-[10px] font-bold text-gray-500 uppercase">Vendidos</p>
             </div>
+            <div className="w-px bg-black/20 self-stretch" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-[#dc2a36]">98%</p>
-              <p className="text-xs text-gray-500">Clientes satisfechos</p>
+              <p className="text-3xl font-black text-[#dc2a36]">98%</p>
+              <p className="text-[10px] font-bold text-gray-500 uppercase">Satisfechos</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* POR QUÉ LEK 2 - COMPARACIÓN */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-white border-t-[3px] border-black">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#facc15] text-black text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               Compara y decide
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-              ¿Por qué elegir <span className="text-[#dc2a36]">Lek 2</span>?
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
+              ¿Por qué elegir <span className="underline decoration-4 decoration-[#dc2a36]">Lek 2</span>?
             </h2>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] bg-white">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-4 px-3 font-semibold text-gray-500"></th>
+                <tr className="border-b-[3px] border-black bg-[#fff3f3]">
+                  <th className="text-left py-4 px-4 font-black text-black uppercase tracking-wider">Característica</th>
                   <th className="py-4 px-3 text-center">
-                    <span className="bg-[#dc2a36] text-white text-xs font-bold px-3 py-1 rounded-full">Lek 2</span>
+                    <span className="bg-[#dc2a36] text-white text-xs font-black px-3 py-1.5 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_#000]">Lek 2</span>
                   </th>
-                  <th className="py-4 px-3 text-center text-gray-400">Kits genéricos</th>
-                  <th className="py-4 px-3 text-center text-gray-400">LEGO Mindstorms</th>
+                  <th className="py-4 px-3 text-center text-gray-700 font-bold uppercase">Genéricos</th>
+                  <th className="py-4 px-3 text-center text-gray-700 font-bold uppercase">Mindstorms</th>
                 </tr>
               </thead>
               <tbody>
@@ -588,11 +602,11 @@ export default function Lek2Page() {
                   ["Edad recomendada", "8-14 años", "12+", "10+"],
                   ["Envío gratis", "✓ Todo México", "Variable", "✗"],
                 ].map(([feature, lek, generic, lego], i) => (
-                  <tr key={i} className="border-b border-gray-100">
-                    <td className="py-3 px-3 font-medium text-gray-700">{feature}</td>
-                    <td className="py-3 px-3 text-center font-semibold text-gray-900">{lek}</td>
-                    <td className="py-3 px-3 text-center text-gray-400">{generic}</td>
-                    <td className="py-3 px-3 text-center text-gray-400">{lego}</td>
+                  <tr key={i} className="border-b-2 border-black last:border-b-0 hover:bg-gray-50/50">
+                    <td className="py-3 px-4 font-bold text-gray-900">{feature}</td>
+                    <td className="py-3 px-3 text-center font-extrabold text-[#dc2a36]">{lek}</td>
+                    <td className="py-3 px-3 text-center text-gray-500 font-medium">{generic}</td>
+                    <td className="py-3 px-3 text-center text-gray-500 font-medium">{lego}</td>
                   </tr>
                 ))}
               </tbody>
@@ -602,56 +616,56 @@ export default function Lek2Page() {
       </section>
 
       {/* GARANTÍA DESTACADA */}
-      <section className="py-10 px-6 bg-green-50 border-y border-green-100">
-        <div className="max-w-3xl mx-auto text-center">
-          <ShieldCheck size={40} className="text-green-600 mx-auto mb-4" />
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+      <section className="py-12 px-6 bg-[#f0fbf0] border-t-[3px] border-black">
+        <div className="max-w-3xl mx-auto text-center bg-white border-[3px] border-black rounded-2xl p-8 shadow-[6px_6px_0px_0px_#22c55e]">
+          <ShieldCheck size={44} className="text-green-700 mx-auto mb-4" strokeWidth={2.5} />
+          <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2 uppercase font-(family-name:--font-display)">
             Garantía de satisfacción de 30 días
           </h3>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-            Si el Lek 2 no cumple tus expectativas, <strong>te devolvemos el 100% de tu dinero</strong>.
+          <p className="text-gray-700 text-sm md:text-base max-w-xl mx-auto font-semibold leading-relaxed">
+            Si el Lek 2 no cumple tus expectativas, <strong className="text-black underline decoration-[#22c55e] decoration-2">te devolvemos el 100% de tu dinero</strong>.
             Sin preguntas, sin complicaciones. Así de seguros estamos de nuestro producto.
           </p>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 bg-[#f3f4de] border-t-[3px] border-black">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#dc2a36] text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               Preguntas frecuentes
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
               ¿Tienes dudas?
             </h2>
           </div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
               <details
                 key={i}
-                className="group bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden"
+                className="group bg-white border-[3px] border-black rounded-xl overflow-hidden shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]"
               >
-                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
-                  <span className="font-semibold text-gray-900 text-sm">{faq.q}</span>
+                <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none bg-white font-bold select-none border-b-2 border-transparent group-open:border-black">
+                  <span className="font-extrabold text-gray-900 text-sm uppercase">{faq.q}</span>
                   <ChevronDown
                     size={18}
-                    className="text-gray-400 group-open:rotate-180 transition-transform duration-200"
+                    className="text-black group-open:rotate-180 transition-transform duration-200"
                   />
                 </summary>
-                <div className="px-5 pb-4 text-sm text-gray-600 leading-relaxed">
+                <div className="px-5 pb-4 pt-4 text-sm text-gray-700 leading-relaxed bg-[#fff3f3] font-medium">
                   {faq.a}
                 </div>
               </details>
             ))}
           </div>
-          <p className="text-center text-sm text-gray-400 mt-8">
+          <p className="text-center text-sm text-gray-700 font-bold mt-8">
             ¿Tienes otra pregunta?{" "}
             <a
               href="https://wa.me/5215512345678?text=Hola,%20tengo%20una%20pregunta%20sobre%20el%20Lek%202"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#dc2a36] font-semibold hover:underline"
+              className="text-[#dc2a36] font-black underline decoration-2 hover:text-[#c02030]"
             >
               Escríbenos por WhatsApp
             </a>
@@ -661,44 +675,44 @@ export default function Lek2Page() {
 
       <section
         id="comprar"
-        className="py-20 px-6 bg-gray-900 relative overflow-hidden"
+        className="py-20 px-6 bg-[#111111] relative overflow-hidden border-t-[3px] border-black border-b-[3px] border-black"
       >
-        {/* Círculos decorativos */}
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#dc2a36] opacity-10 pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#dc2a36] opacity-10 pointer-events-none" />
+        {/* Círculos decorativos retro */}
+        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full border-4 border-black bg-[#dc2a36] opacity-20 pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full border-4 border-black bg-[#facc15] opacity-20 pointer-events-none" />
 
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+        <div className="max-w-3xl mx-auto text-center relative z-10 bg-white border-[3px] border-black rounded-2xl p-8 md:p-12 shadow-[8px_8px_0px_0px_#dc2a36]">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#dc2a36] text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
-            <Zap size={12} fill="white" />
+          <span className="launch-badge inline-flex items-center gap-2 bg-[#facc15] text-black text-xs font-black px-4 py-1.5 border-2 border-black rounded-lg mb-6 tracking-widest uppercase shadow-[2px_2px_0px_0px_#000]">
+            <Zap size={12} fill="black" />
             Precio de lanzamiento
-          </div>
+          </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-4">
+          <h2 className="launch-title text-3xl md:text-5xl font-black text-gray-900 leading-tight tracking-tight mb-4 uppercase font-(family-name:--font-display)">
             Solo por el lanzamiento del{" "}
             <span className="text-[#dc2a36]">Lek 2</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-xl mx-auto">
-            Las primeras <strong className="text-white">100 unidades</strong>{" "}
+          <p className="text-gray-600 text-base md:text-lg mb-8 max-w-xl mx-auto font-medium">
+            Las primeras <strong className="text-black">100 unidades</strong>{" "}
             salen con precio especial de introducción. No pierdas tu lugar.
           </p>
 
           {/* Precios */}
-          <div className="flex items-center justify-center gap-4 mb-10">
-            <span className="text-gray-500 line-through text-2xl">$2,199</span>
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <span className="text-gray-400 line-through text-2xl font-bold">$2,199</span>
             <div className="flex items-end gap-2">
-              <span className="text-6xl md:text-7xl font-bold text-white">
+              <span className="text-5xl md:text-7xl font-black text-[#dc2a36]">
                 $1,600
               </span>
-              <span className="text-gray-500 mb-2 text-sm">MXN</span>
+              <span className="text-gray-500 mb-2 text-sm font-bold">MXN</span>
             </div>
-            <div className="bg-[#dc2a36] text-white text-lg font-bold px-3 py-1.5 rounded-xl">
+            <div className="bg-[#facc15] text-black text-xs font-black px-3 py-1.5 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_#000]">
               −27%
             </div>
           </div>
 
           {/* Checkmarks */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
+          <div className="launch-checks flex flex-wrap justify-center gap-x-4 gap-y-3 mb-10">
             {[
               "Envío gratis",
               "Garantía 6 meses",
@@ -708,9 +722,9 @@ export default function Lek2Page() {
             ].map((item) => (
               <span
                 key={item}
-                className="flex items-center gap-1.5 text-sm text-gray-300"
+                className="launch-check flex items-center gap-1.5 text-sm font-bold text-gray-800 bg-gray-50 border-2 border-black px-3.5 py-1.5 rounded-lg shadow-[1px_1px_0px_0px_#000]"
               >
-                <Check size={14} className="text-[#dc2a36]" strokeWidth={3} />
+                <Check size={14} className="text-green-600" strokeWidth={4} />
                 {item}
               </span>
             ))}
@@ -721,9 +735,11 @@ export default function Lek2Page() {
             href={ML_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#FFE600] text-gray-900 text-lg font-bold
-                       px-12 py-5 rounded-full hover:bg-[#FFD600] transition-all duration-200 hover:scale-105
-                       shadow-xl shadow-[#FFE600]/20"
+            className="inline-flex items-center gap-3 bg-[#FFE600] text-black text-lg font-black
+                       px-12 py-5 border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                       hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                       active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                       transition-all duration-100 ease-in-out uppercase"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -732,16 +748,8 @@ export default function Lek2Page() {
               viewBox="0 0 1481 866"
             >
               <path
-                fill="#ffe600"
-                d="M1438.43 446.78c0 231.03-310.03 419.01-691.138 419.01-381.106 0-691.132-187.98-691.132-419.01 0-231.029 310.026-419.009 691.132-419.009 381.108 0 691.138 187.98 691.138 419.009"
-              />
-              <path
-                fill="#fff"
-                d="M517.421 314.765s-7.563 7.174-3.026 12.913c10.586 12.915 43.858 20.09 78.642 12.915 19.66-4.304 46.881-24.394 71.078-43.049 27.222-20.089 54.444-41.614 81.666-48.789 28.735-8.61 46.883-4.304 58.981-1.434 13.611 4.305 28.734 12.914 54.444 30.134 46.882 33.004 237.434 190.851 270.704 218.115 25.71-11.479 143.67-58.833 303.98-93.272-13.61-80.358-65.03-154.977-143.67-215.245-108.89 43.049-243.49 66.009-375.059 5.74 0 0-71.078-31.571-142.157-30.136-104.351 2.87-148.208 44.485-196.602 90.404z"
-              />
-              <path
-                fill="#fff"
-                d="M1122.35 512.788c-1.51-1.435-223.823-185.111-273.729-220.985-28.735-20.089-45.372-25.829-62.007-28.699-9.074-1.435-21.173.001-30.247 2.871-22.685 5.74-54.442 25.829-81.664 45.918-28.734 21.525-54.445 41.615-78.642 45.92-31.759 7.175-69.566-1.435-86.202-12.915-7.561-4.305-12.098-10.044-15.123-15.784-6.049-14.35 6.049-25.83 7.562-27.265l60.493-63.139 21.173-20.09c-19.661 2.87-37.81 7.176-55.957 11.481-22.685 5.74-43.857 11.478-65.029 11.478-9.074 0-57.469-7.174-66.543-10.044-55.956-14.349-104.352-28.698-176.943-60.267-86.203 61.703-145.183 137.756-161.818 222.419 12.098 2.87 33.27 8.609 40.832 10.044 196.602 41.614 257.096 84.663 269.194 93.273 12.099-12.915 28.734-20.09 48.394-20.09 21.173 0 40.833 10.046 52.931 25.83 10.587-8.609 27.224-15.784 46.884-15.784 9.074 0 18.146 1.434 28.733 4.304 22.685 7.175 33.272 21.525 39.322 34.439 7.561-2.87 16.634-5.74 27.22-5.74 10.587 0 21.174 2.87 33.273 7.175 36.295 14.35 42.344 48.79 39.32 74.619h7.561c43.858 0 78.641 33.004 78.641 74.618q0 19.372-9.074 34.439c12.099 5.74 40.833 20.089 68.055 17.219 21.172-2.87 28.733-8.61 31.758-12.915 1.512-2.87 4.537-5.739 1.512-8.609l-55.955-58.834s-9.075-8.61-6.05-11.48 9.074 1.436 13.611 4.306c28.735 22.959 62.005 55.964 62.005 55.964s3.025 4.305 15.124 7.175c10.586 1.434 30.246-.002 43.857-10.046 3.025-2.87 7.562-5.74 9.074-8.61 13.611-17.219-1.512-34.439-1.512-34.439l-65.031-68.878s-9.072-8.61-6.048-11.48c3.025-2.87 9.073 1.436 13.61 4.306 21.172 15.784 49.908 44.484 77.13 70.313 6.049 4.305 30.246 18.653 62.005-1.436 19.66-12.915 24.2-27.264 22.68-38.743-1.51-14.35-13.61-25.831-13.61-25.831l-87.712-84.661s-9.073-7.176-6.048-11.481c3.025-2.869 9.073 1.436 13.609 4.306 28.735 22.959 104.351 88.967 104.351 88.967 1.51 0 27.22 18.655 60.49-1.434 12.1-7.175 19.66-17.22 19.66-30.134 1.52-18.655-15.12-31.571-15.12-31.571"
+                fill="#2d3277"
+                d="M1122.35 512.788c-1.51-1.435-223.823-185.111-273.729-220.985-28.735-20.089-45.372-25.829-62.007-28.699-9.074-1.435-21.173.001-30.247 2.871-22.685 5.74-54.442 25.829-81.664 45.918-28.734 21.525-54.445 41.615-78.642 45.92-31.759 7.175-69.566-1.435-86.202-12.915-7.561-4.305-12.098-10.044-15.123-15.784-6.049-14.35 6.049-25.83 7.562-27.265l60.493-63.139 21.173-20.09c-19.661 2.87-37.81 7.176-55.957 11.481-22.685 5.74-43.857 11.478-65.029 11.478-9.074 0-57.469-7.174-66.543-10.044-55.956-14.349-104.352-28.698-176.943-60.267-86.203 61.703-145.183 137.756-161.818 222.419 12.098 2.87 33.27 8.609 40.832 10.044 196.602 41.614 257.096 84.663 269.194 93.273 12.099-12.915 28.734-20.09 48.394-20.09 21.173 0 40.833 10.046 52.931 25.83 10.587-8.609 27.224-15.784 46.884-15.784 9.074 0 18.146 1.434 28.733 4.304 22.685 7.175 33.272 21.525 39.322 34.439 7.561-2.87 16.634-5.74 27.22-5.74 10.587 0 21.174 2.87 33.27 7.175 36.295 14.35 42.344 48.79 39.32 74.619h7.561c43.858 0 78.641 33.004 78.641 74.618q0 19.372-9.074 34.439c12.099 5.74 40.833 20.089 68.055 17.219 21.172-2.87 28.733-8.61 31.758-12.915 1.512-2.87 4.537-5.739 1.512-8.609l-55.955-58.834s-9.075-8.61-6.05-11.48 9.074 1.436 13.611 4.306c28.735 22.959 62.005 55.964 62.005 55.964s3.025 4.305 15.124 7.175c10.586 1.434 30.246-.002 43.857-10.046 3.025-2.87 7.562-5.74 9.074-8.61 13.611-17.219-1.512-34.439-1.512-34.439l-65.031-68.878s-9.072-8.61-6.048-11.48c3.025-2.87 9.073 1.436 13.61 4.306 21.172 15.784 49.908 44.484 77.13 70.313 6.049 4.305 30.246 18.653 62.005-1.436 19.66-12.915 24.2-27.264 22.68-38.743-1.51-14.35-13.61-25.831-13.61-25.831l-87.712-84.661s-9.073-7.176-6.048-11.481c3.025-2.869 9.073 1.436 13.609 4.306 28.735 22.959 104.351 88.967 104.351 88.967 1.51 0 27.22 18.655 60.49-1.434 12.1-7.175 19.66-17.22 19.66-30.134 1.52-18.655-15.12-31.571-15.12-31.571"
               />
               <path
                 fill="#fff"
@@ -756,7 +764,7 @@ export default function Lek2Page() {
             <ExternalLink size={18} />
           </a>
 
-          <p className="text-gray-600 text-xs mt-6">
+          <p className="text-gray-500 text-xs mt-6 font-bold">
             Disponible en Mercado Libre · Envío gratis · Pago seguro
           </p>
         </div>
@@ -768,11 +776,10 @@ export default function Lek2Page() {
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white
-                   pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-[#20bd5a]
-                   transition-all duration-200 hover:scale-105 group"
+                   pl-4 pr-5 py-3 border-2 border-black rounded-lg shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-100 group"
       >
-        <MessageCircle size={22} fill="white" />
-        <span className="text-sm font-semibold hidden sm:inline">¿Dudas? Escríbenos</span>
+        <MessageCircle size={22} fill="white" className="text-white" />
+        <span className="text-sm font-black uppercase tracking-wider hidden sm:inline">¿Dudas? Escríbenos</span>
       </a>
     </main>
   );

@@ -21,7 +21,6 @@ import Link from "next/link";
 import RotatingText from "./components/RotatingText";
 import LandingAnimations from "./components/LandingAnimations";
 import InteractiveDots from "./components/InteractiveDots";
-import ParticleNetwork from "./components/ParticleNetwork";
 
 const steps = [
   {
@@ -68,10 +67,10 @@ export default function Home() {
       >
         {/* ── DERECHA: imagen (solo desktop) ── */}
         <div className="hidden min-[920px]:flex w-1/2 items-center justify-center relative order-last">
-          <div className="hero-circle absolute z-0 rounded-full bg-[#dc2a36] w-[90%]  aspect-square" />
-          <div className="hero-circle absolute z-0 rounded-full bg-[#e84d5a] w-[70%]  aspect-square" />
-          <div className="hero-circle absolute z-0 rounded-full bg-[#f07078] w-[52%]  aspect-square" />
-          <div className="hero-circle absolute z-0 rounded-full bg-[#f8a0a8] w-[34%]  aspect-square" />
+          <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#dc2a36] w-[90%] aspect-square" />
+          <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#fff3f3] w-[70%] aspect-square" />
+          <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#dc2a36] w-[50%] aspect-square" />
+          <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-white w-[30%] aspect-square shadow-[4px_4px_0px_0px_#000]" />
           <Image
             src="/lekprov22.png"
             alt="Lek 2 — Kit de robótica educativa para niños, robot programable desde el celular"
@@ -85,9 +84,9 @@ export default function Home() {
         {/* ── IZQUIERDA (desktop) / CENTRO (mobile): texto ── */}
         <div className="w-full min-[920px]:w-2/3 flex flex-col items-center min-[920px]:items-start">
           {/* Precio lanzamiento */}
-          <div className="hero-badge inline-flex items-center gap-2 mb-6 bg-[#fff3f3] border border-[#dc2a36]/30 rounded-lg px-3 py-1.5">
-            <span className="text-[#dc2a36] font-black text-sm leading-none">!</span>
-            <p className="text-[#dc2a36] text-xs font-semibold">
+          <div className="hero-badge inline-flex items-center gap-2 mb-6 bg-[#facc15] border-2 border-black rounded-lg px-3 py-1.5 shadow-[2px_2px_0px_0px_#000]">
+            <span className="bg-black text-[#facc15] font-black text-xs w-4 h-4 rounded-full flex items-center justify-center">!</span>
+            <p className="text-black text-xs font-bold uppercase tracking-wider">
               Spoiler: nunca va a estar más barato que esto.
             </p>
           </div>
@@ -100,17 +99,17 @@ export default function Home() {
           </h1>
 
           {/* Robot + círculos — solo mobile */}
-          <div className="relative flex min-[920px]:hidden items-center justify-center my-6">
-            <div className="hero-circle absolute z-0 rounded-full bg-[#dc2a36] w-37 h-37 sm:w-51 sm:h-51" />
-            <div className="hero-circle absolute z-0 rounded-full bg-[#e84d5a] w-30 h-30 sm:w-40 sm:h-40" />
-            <div className="hero-circle absolute z-0 rounded-full bg-[#f07078] w-20 h-20 sm:w-27 sm:h-27" />
-            <div className="hero-circle absolute z-0 rounded-full bg-[#f8a0a8] w-12 h-12 sm:w-17 sm:h-17" />
+          <div className="relative flex min-[920px]:hidden items-center justify-center my-6 w-full max-w-[280px] aspect-square">
+            <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#dc2a36] w-[90%] aspect-square" />
+            <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#fff3f3] w-[70%] aspect-square" />
+            <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-[#dc2a36] w-[50%] aspect-square" />
+            <div className="hero-circle absolute z-0 rounded-full border-[3px] border-black bg-white w-[30%] aspect-square shadow-[4px_4px_0px_0px_#000]" />
             <Image
               src="/lekprov22.png"
               alt="Lek 2 — Robot educativo programable para niños, kit de robótica armable en casa"
               width={320}
               height={320}
-              className="hero-robot relative z-10 object-contain drop-shadow-xl w-64 sm:w-80"
+              className="hero-robot relative z-10 object-contain drop-shadow-xl w-56 sm:w-72"
               priority
             />
           </div>
@@ -119,31 +118,34 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center min-[920px]:items-start gap-4 mb-8 w-full sm:w-auto">
             <Link
               href="/lek-2"
-              className="hero-cta w-full sm:w-auto flex items-center justify-center gap-2 bg-[#dc2a36] text-white text-base font-bold
-                         px-8 py-4 rounded-full hover:bg-[#c02030] transition-all duration-200 hover:scale-105"
+              className="hero-cta w-full sm:w-auto flex items-center justify-center gap-2 bg-[#dc2a36] text-white text-base font-black
+                         px-8 py-4 border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl
+                         hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                         active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                         transition-all duration-100 ease-in-out"
             >
               Comprar ahora — $1,600
-              <ChevronRight size={18} />
+              <ChevronRight size={18} strokeWidth={2.5} />
             </Link>
             <a
               href="#como-funciona"
-              className="hero-cta w-full sm:w-auto flex items-center justify-center gap-2 text-gray-700 text-base font-medium bg-[#f8f8f8]
-                         px-8 py-4 rounded-full border-2 border-gray-300 hover:border-gray-500
-                         hover:bg-white transition-all duration-200"
+              className="hero-cta w-full sm:w-auto flex items-center justify-center gap-2 text-black text-base font-bold bg-[#white]
+                         px-8 py-4 border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl
+                         hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                         active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                         transition-all duration-100 ease-in-out bg-white"
             >
               Ver más
-              <ChevronRight size={18} />
+              <ChevronRight size={18} strokeWidth={2.5} />
             </a>
           </div>
 
           {/* Descripción */}
           <p className="hero-desc text-base min-[920px]:text-lg text-gray-600 leading-relaxed mb-6">
-            El <strong className="text-gray-900">kit de robótica para niños</strong>{" "}
-            más accesible de México. Construye, programa y controla tu robot
-            educativo desde el celular con la{" "}
-            <strong className="text-[#dc2a36]">LekApp</strong>.{" "}
+            El <strong className="text-gray-900">kit de robótica programable</strong>{" "}
+            más accesible de México. Construye y controla desde tu celular,{" "}
             <span className="text-gray-900 font-medium">
-              Sin soldadura, sin experiencia previa.
+              sin soldar ni experiencia previa.
             </span>
           </p>
 
@@ -156,7 +158,7 @@ export default function Home() {
           </div>
 
           {/* Specs */}
-          <div className="hero-specs grid grid-cols-3 divide-x divide-gray-200 border border-gray-200 rounded-2xl overflow-hidden w-full max-w-sm bg-white">
+          <div className="hero-specs grid grid-cols-3 divide-x-[3px] divide-black border-[3px] border-black rounded-xl overflow-hidden w-full max-w-sm bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             {[
               { value: "BT", label: "Bluetooth" },
               { value: "360°", label: "Movimiento" },
@@ -164,12 +166,12 @@ export default function Home() {
             ].map((spec) => (
               <div
                 key={spec.label}
-                className="flex flex-col items-center py-5 px-2 hover:bg-[#dc2a36] transition-colors duration-200 group"
+                className="flex flex-col items-center py-5 px-2 hover:bg-[#dc2a36] transition-colors duration-100 group"
               >
-                <p className="text-lg font-bold text-[#dc2a36] group-hover:text-white transition-colors duration-200">
+                <p className="text-lg font-black text-[#dc2a36] group-hover:text-white transition-colors duration-100">
                   {spec.value}
                 </p>
-                <p className="text-xs text-gray-400 group-hover:text-white/80 mt-1 uppercase tracking-wider transition-colors duration-200">
+                <p className="text-[10px] font-black text-gray-600 group-hover:text-white/90 mt-1 uppercase tracking-wider transition-colors duration-100">
                   {spec.label}
                 </p>
               </div>
@@ -178,17 +180,17 @@ export default function Home() {
         </div>
       </section>
       {/* ENVÍO GRATIS — banner */}
-      <section className="banner-shipping bg-[#dc2a36] py-5 px-6">
+      <section className="banner-shipping bg-[#dc2a36] py-5 px-6 border-y-[3px] border-black">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-white text-center">
-          <Truck size={22} strokeWidth={2} className="shrink-0" />
-          <p className="text-sm md:text-base font-semibold tracking-wide">
-            Envío <strong>gratis</strong> a toda la República Mexicana en todos
-            los pedidos.
+          <Truck size={22} strokeWidth={2.5} className="shrink-0 text-white" />
+          <p className="text-sm md:text-base font-extrabold tracking-wide uppercase">
+            Envío <span className="underline decoration-wavy decoration-[#facc15] decoration-2">gratis</span> a toda la República Mexicana en todos los pedidos.
           </p>
           <a
             href="#comprar"
-            className="shrink-0 bg-white text-[#dc2a36] text-xs font-bold px-4 py-1.5 rounded-full
-                       hover:bg-gray-100 transition-colors duration-200"
+            className="shrink-0 bg-[#facc15] text-black text-xs font-black px-4 py-2 border-2 border-black rounded-lg
+                       shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]
+                       active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all duration-100"
           >
             Comprar ahora
           </a>
@@ -196,48 +198,50 @@ export default function Home() {
       </section>
 
       {/* CÓMO FUNCIONA */}
-      <section id="como-funciona" className="py-16 md:py-28 px-6 bg-white">
+      <section id="como-funciona" className="py-16 md:py-28 px-6 bg-white border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto">
           {/* Encabezado */}
           <div className="steps-header text-center mb-10 md:mb-20">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#dc2a36] text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               De la caja a tu control
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Así funciona el <span className="text-[#dc2a36]">Lek 2</span>, el kit de robótica para niños.
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight uppercase font-(family-name:--font-display) mt-2">
+              Así funciona el <span className="underline decoration-4 decoration-[#dc2a36]">Lek 2</span>, el kit de robótica.
             </h2>
           </div>
 
           {/* Steps */}
-          <div className="steps-grid grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
+          <div className="steps-grid grid grid-cols-2 md:grid-cols-4 gap-6 relative">
             {/* Línea conectora */}
-            <div className="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gray-100 z-0" />
+            <div className="hidden md:block absolute top-14 left-[12.5%] right-[12.5%] h-1 border-t-[3px] border-dashed border-black z-0" />
 
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="step-card relative z-10 flex flex-col items-center text-center bg-[#f8f8f8]
-                           border border-gray-200 rounded-2xl p-5 md:p-8
-                           hover:-translate-y-1 transition-all duration-300 hover:border-[#dc2a36]"
+                className="step-card relative z-10 flex flex-col items-center text-center bg-[#fdfdfd]
+                           border-[3px] border-black rounded-xl p-5 md:p-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                           hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                           active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                           transition-all duration-100 ease-in-out"
               >
                 {/* Ícono */}
                 <div
-                  className="w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-white border border-gray-200 flex items-center justify-center
-                              text-[#dc2a36] mb-4 relative"
+                  className="w-14 h-14 md:w-20 md:h-20 rounded-xl bg-[#fff3f3] border-2 border-black flex items-center justify-center
+                              text-[#dc2a36] mb-4 relative shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 >
                   {step.icon}
                   <span
-                    className="absolute -top-2 -right-2 bg-[#dc2a36] text-white text-[10px]
-                               font-bold w-5 h-5 rounded-full flex items-center justify-center"
+                    className="absolute -top-2.5 -right-2.5 bg-[#facc15] text-black text-[11px]
+                               font-black w-6 h-6 border-2 border-black rounded-full flex items-center justify-center shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
                   >
                     {step.number.replace("0", "")}
                   </span>
                 </div>
 
-                <h3 className="text-sm md:text-lg font-bold text-gray-900 mb-1 md:mb-2">
+                <h3 className="text-sm md:text-lg font-black text-gray-900 mb-1 md:mb-2 uppercase">
                   {step.title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-500 leading-relaxed hidden sm:block">
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed hidden sm:block">
                   {step.desc}
                 </p>
               </div>
@@ -248,11 +252,14 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/lek-2"
-              className="inline-flex items-center gap-2 bg-[#dc2a36] text-white font-bold
-                         px-10 py-4 rounded-full hover:bg-[#c02030] transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#dc2a36] text-white font-black text-lg
+                         px-10 py-4 border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                         hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                         active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                         transition-all duration-100 ease-in-out"
             >
               Quiero mi Lek 2
-              <ChevronRight size={18} />
+              <ChevronRight size={18} strokeWidth={2.5} />
             </Link>
           </div>
         </div>
@@ -261,49 +268,46 @@ export default function Home() {
       {/* LANZAMIENTO — descuento especial */}
       <section
         id="comprar"
-        className="launch-section py-20 px-6 bg-gray-900 relative overflow-hidden"
+        className="launch-section py-20 px-6 bg-[#111111] relative overflow-hidden border-b-[3px] border-black"
       >
-        {/* Red de partículas conectadas */}
-        <ParticleNetwork className="opacity-70" color="#dc2a36" />
+        {/* Círculos decorativos retro */}
+        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full border-4 border-black bg-[#dc2a36] opacity-20 pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full border-4 border-black bg-[#facc15] opacity-20 pointer-events-none" />
 
-        {/* Círculos decorativos */}
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#dc2a36] opacity-10 pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#dc2a36] opacity-10 pointer-events-none" />
-
-        <div className="max-w-3xl mx-auto text-center relative z-10">
+        <div className="max-w-3xl mx-auto text-center relative z-10 bg-white border-[3px] border-black rounded-2xl p-8 md:p-12 shadow-[8px_8px_0px_0px_#dc2a36]">
           {/* Badge */}
-          <div className="launch-badge inline-flex items-center gap-2 bg-[#dc2a36] text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 tracking-widest uppercase">
-            <Zap size={12} fill="white" />
+          <span className="launch-badge inline-flex items-center gap-2 bg-[#facc15] text-black text-xs font-black px-4 py-1.5 border-2 border-black rounded-lg mb-6 tracking-widest uppercase shadow-[2px_2px_0px_0px_#000]">
+            <Zap size={12} fill="black" />
             Precio de lanzamiento
-          </div>
+          </span>
 
-          <h2 className="launch-title text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-4">
+          <h2 className="launch-title text-3xl md:text-5xl font-black text-gray-900 leading-tight tracking-tight mb-4 uppercase font-(family-name:--font-display)">
             Solo por el lanzamiento del{" "}
             <span className="text-[#dc2a36]">Lek 2</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg mb-10 max-w-xl mx-auto">
-            Las primeras <strong className="text-white">100 unidades</strong>{" "}
+          <p className="text-gray-600 text-base md:text-lg mb-8 max-w-xl mx-auto font-medium">
+            Las primeras <strong className="text-black">100 unidades</strong>{" "}
             salen con precio especial de introducción. No pierdas tu lugar.
           </p>
 
           {/* Precios */}
-          <div className="launch-price flex flex-col items-center gap-3 mb-10">
+          <div className="launch-price flex flex-col items-center gap-3 mb-8">
             <div className="flex items-center gap-3">
-              <span className="text-gray-500 line-through text-xl md:text-2xl">$2,199</span>
-              <div className="bg-[#dc2a36] text-white text-sm md:text-lg font-bold px-3 py-1 rounded-xl">
+              <span className="text-gray-400 line-through text-xl md:text-2xl font-bold">$2,199</span>
+              <div className="bg-[#facc15] text-black text-sm md:text-lg font-black px-3 py-1 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_#000]">
                 −27%
               </div>
             </div>
-            <div className="flex items-end gap-2">
-              <span className="text-5xl md:text-7xl font-bold text-white">
+            <div className="flex items-end gap-2 justify-center">
+              <span className="text-5xl md:text-7xl font-black text-[#dc2a36]">
                 $1,600
               </span>
-              <span className="text-gray-500 mb-2 text-sm">MXN</span>
+              <span className="text-gray-500 mb-2 text-sm font-bold">MXN</span>
             </div>
           </div>
 
           {/* Checkmarks */}
-          <div className="launch-checks flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
+          <div className="launch-checks flex flex-wrap justify-center gap-x-4 gap-y-3 mb-10">
             {[
               "Envío gratis",
               "Garantía 6 meses",
@@ -313,9 +317,9 @@ export default function Home() {
             ].map((item) => (
               <span
                 key={item}
-                className="launch-check flex items-center gap-1.5 text-sm text-gray-300"
+                className="launch-check flex items-center gap-1.5 text-sm font-bold text-gray-800 bg-gray-50 border-2 border-black px-3.5 py-1.5 rounded-lg shadow-[1px_1px_0px_0px_#000]"
               >
-                <Check size={14} className="text-[#dc2a36]" strokeWidth={3} />
+                <Check size={14} className="text-green-600" strokeWidth={4} />
                 {item}
               </span>
             ))}
@@ -324,14 +328,17 @@ export default function Home() {
           {/* CTA */}
           <a
             href="/lek-2"
-            className="inline-flex items-center gap-2 bg-[#dc2a36] text-white text-lg font-bold
-                       px-12 py-5 rounded-full hover:bg-[#f03344] transition-all duration-200 hover:scale-105"
+            className="inline-flex items-center gap-2 bg-[#dc2a36] text-white text-lg font-black
+                       px-12 py-5 border-[3px] border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                       hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                       active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                       transition-all duration-100 ease-in-out"
           >
             Quiero mi Lek 2 — $1,600
-            <ChevronRight size={20} />
+            <ChevronRight size={20} strokeWidth={2.5} />
           </a>
 
-          <p className="text-gray-600 text-xs mt-6">
+          <p className="text-gray-500 text-xs mt-6 font-bold">
             Precio válido para las primeras 100 unidades · IVA incluido · Envío
             gratis
           </p>
@@ -339,22 +346,22 @@ export default function Home() {
       </section>
 
       {/* VIDEO CREADOR */}
-      <section className="bg-black py-5 px-6">
+      <section className="bg-black py-5 px-6 border-b-[3px] border-black">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 text-white text-center">
           <Play
             size={22}
             strokeWidth={2}
-            className="shrink-0 text-[#dc2a36]"
-            fill="#dc2a36"
+            className="shrink-0 text-[#facc15]"
+            fill="#facc15"
           />
-          <p className="text-sm md:text-base font-semibold tracking-wide">
-            Conoce a <strong>nuestro creador</strong> y la historia detrás del
-            Lek 2.
+          <p className="text-sm md:text-base font-extrabold tracking-wide uppercase">
+            Conoce a <strong className="text-[#facc15]">nuestro creador</strong> y la historia detrás del Lek 2.
           </p>
           <a
             href="#video"
-            className="shrink-0 bg-[#dc2a36] text-white text-xs font-bold px-4 py-1.5 rounded-full
-                       hover:bg-[#c02030] transition-colors duration-200"
+            className="shrink-0 bg-[#dc2a36] text-white text-xs font-black px-4 py-2 border-2 border-black rounded-lg
+                       shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.2)]
+                       active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_rgba(255,255,255,0.2)] transition-all duration-100"
           >
             Ver video
           </a>
@@ -364,22 +371,22 @@ export default function Home() {
       {/* QUIÉNES SOMOS */}
       <section
         id="quienes-somos"
-        className="about-section py-24 px-6"
+        className="about-section py-24 px-6 border-b-[3px] border-black"
       >
         <div className="max-w-5xl mx-auto">
           {/* Encabezado */}
           <div className="about-header text-center mb-16">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#facc15] text-black text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               Nuestra misión
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight">
-              Quiénes <span className="text-[#dc2a36]">somos.</span>
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight uppercase font-(family-name:--font-display) mt-2">
+              Quiénes <span className="underline decoration-4 decoration-[#dc2a36]">somos.</span>
             </h2>
           </div>
 
           {/* Frase principal */}
-          <div className="about-quote bg-white border border-gray-200 rounded-3xl p-10 md:p-16 text-center mb-10">
-            <p className="text-xl md:text-3xl font-bold text-gray-900 leading-snug tracking-tight">
+          <div className="about-quote bg-white border-[3px] border-black rounded-2xl p-10 md:p-16 text-center mb-12 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <p className="text-xl md:text-3xl font-black text-gray-900 leading-snug tracking-tight uppercase font-(family-name:--font-display)">
               Creemos que la robótica no debe ser un lujo.
               <br />
               <span className="text-[#dc2a36]">
@@ -389,36 +396,38 @@ export default function Home() {
           </div>
 
           {/* Pilares */}
-          <div className="pilars-grid grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <div className="pilars-grid grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
-                icon: <Lightbulb size={24} strokeWidth={1.5} />,
+                icon: <Lightbulb size={24} strokeWidth={2} />,
                 title: "Accesible",
                 desc: "Diseñamos el Lek 2 con el mínimo presupuesto posible sin sacrificar calidad, para que cualquier familia pueda acceder.",
               },
               {
-                icon: <Heart size={24} strokeWidth={1.5} />,
+                icon: <Heart size={24} strokeWidth={2} />,
                 title: "Inclusivo",
                 desc: "Hecho para niños y niñas de todo México, sin importar dónde vivan o cuánto sepan de tecnología.",
               },
               {
-                icon: <Globe size={24} strokeWidth={1.5} />,
+                icon: <Globe size={24} strokeWidth={2} />,
                 title: "Democratizando",
                 desc: "Queremos que México sea un país de creadores, no solo consumidores. La robótica empieza en casa.",
               },
             ].map((pilar) => (
               <div
                 key={pilar.title}
-                className="pilar-card bg-white border border-gray-200 rounded-2xl p-7 hover:border-[#dc2a36]
-                           hover:-translate-y-1 transition-all duration-300"
+                className="pilar-card bg-white border-[3px] border-black rounded-xl p-7 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                           hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                           active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                           transition-all duration-100 ease-in-out"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#dc2a36] text-white flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#facc15] text-black border-2 border-black flex items-center justify-center mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                   {pilar.icon}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-lg font-black text-gray-900 mb-2 uppercase">
                   {pilar.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {pilar.desc}
                 </p>
               </div>
@@ -428,17 +437,17 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIOS */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-white border-b-[3px] border-black">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-[#dc2a36] text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block bg-[#dc2a36] text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 border-2 border-black mb-4 shadow-[2px_2px_0px_0px_#000]">
               Familias felices
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Ellos ya tienen su <span className="text-[#dc2a36]">Lek 2</span>
+            </span>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase font-(family-name:--font-display) mt-2">
+              Ellos ya tienen su <span className="underline decoration-4 decoration-[#dc2a36]">Lek 2</span>
             </h2>
           </div>
-          <div className="testimonials-grid grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="testimonials-grid grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 name: "María González",
@@ -461,10 +470,13 @@ export default function Home() {
             ].map((t) => (
               <div
                 key={t.name}
-                className="testimonial-card bg-[#f8f8f8] border border-gray-100 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="testimonial-card bg-[#fdfdfd] border-[3px] border-black rounded-xl p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
+                           hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]
+                           active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                           transition-all duration-100 ease-in-out"
               >
-                <Quote size={24} className="text-[#dc2a36] opacity-30 mb-3" />
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <Quote size={24} className="text-[#dc2a36] opacity-40 mb-3" />
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 font-medium">
                   &ldquo;{t.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-1 mb-3">
@@ -472,8 +484,8 @@ export default function Home() {
                     <Star key={i} size={14} fill="#facc15" className="text-yellow-400" />
                   ))}
                 </div>
-                <p className="font-bold text-gray-900 text-sm">{t.name}</p>
-                <p className="text-xs text-gray-400">{t.location}</p>
+                <p className="font-black text-gray-900 text-sm uppercase">{t.name}</p>
+                <p className="text-xs text-gray-500 font-bold">{t.location}</p>
               </div>
             ))}
           </div>
@@ -481,14 +493,14 @@ export default function Home() {
       </section>
 
       {/* GARANTÍA */}
-      <section className="guarantee-section py-10 px-6 bg-green-50 border-y border-green-100">
+      <section className="guarantee-section py-10 px-6 bg-[#f0fbf0] border-b-[3px] border-black">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-          <ShieldCheck size={36} className="text-green-600 shrink-0" />
+          <ShieldCheck size={36} className="text-green-700 shrink-0" strokeWidth={2.5} />
           <div>
-            <h3 className="text-lg font-bold text-gray-900">
+            <h3 className="text-lg font-black text-gray-900 uppercase">
               30 días de garantía de satisfacción
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-700 font-semibold">
               Si no te convence, te devolvemos el 100% de tu dinero. Sin preguntas.
             </p>
           </div>

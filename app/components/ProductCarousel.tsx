@@ -128,13 +128,13 @@ export default function ProductCarousel() {
       {/* ── Slide ── */}
       <div
         ref={containerRef}
-        className="relative w-full aspect-square bg-[#f8f8f8] rounded-3xl overflow-hidden border border-gray-100 group"
+        className="relative w-full aspect-square bg-[#fdfdfd] border-[3px] border-black rounded-xl overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group"
         onMouseMove={playing ? resetHideTimer : undefined}
         onTouchStart={playing ? resetHideTimer : undefined}
       >
         {/* Círculos decorativos */}
-        <div className="absolute rounded-full bg-[#dc2a36] w-52 h-52 opacity-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        <div className="absolute rounded-full bg-[#dc2a36] w-36 h-36 opacity-15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute rounded-full border-[3px] border-black bg-[#dc2a36] w-52 h-52 opacity-25 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute rounded-full border-[3px] border-black bg-[#facc15] w-36 h-36 opacity-35 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
         {slide.type === "video" && (
           <>
@@ -153,8 +153,8 @@ export default function ProductCarousel() {
                 className="absolute inset-0 flex items-center justify-center z-20 cursor-pointer"
                 aria-label="Reproducir video"
               >
-                <div className="w-16 h-16 rounded-full bg-[#dc2a36] hover:bg-[#f03344] hover:scale-110
-                                flex items-center justify-center shadow-2xl transition-all duration-300">
+                <div className="w-16 h-16 rounded-xl bg-[#dc2a36] border-[3px] border-black
+                                flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all duration-100">
                   <Play size={26} fill="white" className="text-white ml-1" />
                 </div>
               </button>
@@ -238,8 +238,8 @@ export default function ProductCarousel() {
                     {/* Play / Pause / Replay */}
                     <button
                       onClick={togglePause}
-                      className="w-9 h-9 flex items-center justify-center rounded-full bg-[#dc2a36] hover:bg-[#f03344]
-                                 text-white transition-all hover:scale-105 shadow-lg shadow-[#dc2a36]/40"
+                      className="w-9 h-9 flex items-center justify-center rounded-lg bg-[#dc2a36] hover:bg-[#f03344]
+                                 text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
                     >
                       {ended
                         ? <RotateCcw size={15} />
@@ -251,8 +251,8 @@ export default function ProductCarousel() {
                     {/* Mute */}
                     <button
                       onClick={toggleMute}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25
-                                 text-white transition-all"
+                      className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/25
+                                 text-white border border-white/25 transition-all"
                     >
                       {muted ? <VolumeX size={14} /> : <Volume2 size={14} />}
                     </button>
@@ -262,8 +262,8 @@ export default function ProductCarousel() {
                     {/* Fullscreen */}
                     <button
                       onClick={handleFullscreen}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/25
-                                 text-white transition-all"
+                      className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/25
+                                 text-white border border-white/25 transition-all"
                     >
                       <Maximize2 size={14} />
                     </button>
